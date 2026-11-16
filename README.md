@@ -1,173 +1,31 @@
-# Miljonimäng
+# Miljonimäng — Kriit 306
 
-## Projekti kirjeldus
+Staatiline eestikeelne teadmistekontroll ülesande lähtekoodi kohta. Valitakse 15 küsimust: viis lihtsat, viis keskmist ja viis rasket. Vastuse järel näidatakse iga valiku selgitust. Kolm ühekordset õlekõrt: 50:50, vihje ja simuleeritud publik. Teenitud summa erineb järgmise küsimuse väärtusest; eksimisel jääb viimane saavutatud turvatase.
 
-Miljonimäng on veebirakendus, mis aitab kontrollida kasutaja arusaama ülesande lahendusest. Rakendus jäljendab "Kes tahab saada miljonäriks?" mängu formaati - kasutajale esitatakse 15 valikvastustega küsimust, mille vastamise eest saab punkte.
+## Käivitamine
 
-See on täielikult staatiline rakendus, mis töötab GitHub Pages-is ilma serverita. Kuna tehisintellekti (AI) kasutamine GitHub Pages-is ei ole võimalik, genereeritakse küsimused eelnevalt ja need vahelduvad iga mängu kord.
+Node.js on vajalik manifesti koostamiseks ja testideks; Python 3 kohalikuks failiserveriks.
 
-## Kasutatud tehnoloogiad
-
-- **HTML5** - Struktuur ja sisu
-- **CSS3** - Stiilid ja Miljonimängu teema
-- **Vanilla JavaScript (ES6+)** - Kogu loogika, mängu juhtimine, küsimuste laadimine
-- **LocalStorage** - Mängu oleku hoidmiseks (tulevikus)
-
-## Käivitamise juhend
-
-Kuna tegu on staatilise veebirakendusega, ei ole vaja serverit:
-
-1. Laadi failid GitHub-i repositooriumisse
-2. Sea sisse GitHub Pages (Settings → Pages → Source: main branch)
-3. Rakendus on kättesaadav aadressil: `https://[kasutajanimi].github.io/[repo-nimi]/`
-
-Kohaliku arenduse jaoks:
-1. Ava `index.html` brauseris topelt (kaheklik klikk)
-2. Või kasuta kohaliku serverit: `python3 -m http.server 8000`
-
-## Input-kausta struktuur
-
-```
-input/
-  001/
-    assignment.md      # Ülesande püstitus, nõuded, hindamiskriteeriumid
-    index.html         # Lahenduse HTML
-    style.css           # Lahenduse CSS
-    script.js           # Lahenduse JavaScript
-  002/
-    assignment.md
-    index.html
-    style.css
-    script.js
-    data.json
-  003/
-    assignment.md
-    index.html
-    style.css
-    script.js
+```sh
+npm run build
+npm test
+npm start
 ```
 
-## AI küsimuste genereerimise loogika
+Ava http://localhost:8080. Otse file:// avamine ei tööta, sest rakendus laadib faile fetch-iga. GitHub Pages sobib pärast avaldamist staatiliseks majutuseks; avaldamist pole selles sessioonis tehtud.
 
-Kuna rakendus töötab GitHub Pages-is (staatiline), kasutatakse eelnevalt genereeritud küsimustepanku.
+## Ülesannete lisamine ja küsimuste allikas
 
-### Küsimuste struktuur (questions/*.json)
+Lisa numbriline alamkaust `input/` alla, sinna `assignment.md` ja vähemalt üks lahendusfail. `npm run build` leiab ka lünkadega nummerduse ning kirjutab manifesti. Manifest hõlmab lahenduse tekstifaile; binaarfailid, sõltuvused, sümbollingid ja liiga suured failid jäetakse välja või lükatakse tagasi. Seejärel lisa vastav kontrollitud küsimustepank `questions/ID.json` alla.
 
-```json
-[
-  {
-    "level": 1,                  // Raskusaste (1-15)
-    "question": "Küsimuse tekst",
-    "options": ["Vastus A", "Vastus B", "Vastus C", "Vastus D"],
-    "correctIndex": 1,           // Õige vastuse indeks (0-3)
-    "hint": "Vihje küsiks",      // Lifeline jaoks
-    "explanations": [             // Selgitus KÕIGELE valikule
-      "Vale: ...",              // Selgitus valikule A
-      "Õige: ...",             // Selgitus valikule B (õige)
-      "Vale: ...",              // Selgitus valikule C
-      "Vale: ..."               // Selgitus valikule D
-    ]
-  }
-]
-```
+`js/provider.js` on selgelt märgistatud simulatsioon. Selle sisend sisaldab ülesande kirjeldust JA manifestis olevaid lahendusfaile ning kontrollitud küsimustepanka. See ei saada päringuid päris keelemudelile ega väida, et loob uusi küsimusi. Mudeli ühendamise leping ja viip on failis `prompts/question-generation.md`. Staatiline majutus ei keela iseenesest AI kasutamist, kuid salajast teenusevõtit ei tohi avalikku brauserikoodi panna.
 
-### Küsimuste genereerimise põhimõtted
+## Tööjärg ja valmiskriteerium
 
-1. **Mitte flukeerimine**: Valikvastused peavad olema üksteisele väga sarnased, et õige vastus ei selgu loogikaga, vaid nõuab teadmisi
-2. **Selgitused**: Iga küsimuse juures on 4 selgitust (iga valiku kohta), mis kuvatakse pärast vastamist
-3. **Raskusastmed**:
-   - 1-5: Lihtsad (põhimõisted, üldine arusaam)
-   - 6-10: Keskmised (sisemine loogika, koodi töö)
-   - 11-15: Rasked (sügavam arusaam, turvalisus, arhitektuur)
-4. **Vaheldumine**: Iga mängu kord valitakse 15 küsimust 50+ küsimuse pankadest juhuslikult
+[Kanban ja kasutajalood](planning.html) sisaldavad vastuvõtukriteeriume ning punkte. Oleku muutmine salvestub selle brauseri localStorage'i. See on kohalik töölaud, mitte tõend varasemast meeskonnatööst ega avalik koostöökeskkond.
 
-## Mängu reeglid
+Lugu on valmis, kui vastuvõtukriteeriumid on täidetud, asjakohased testid läbivad, kood on üle vaadatud ning kasutaja töövoog brauseris läbi proovitud. Seni jäävad brauserikontrolli vajavad lood ülevaatusse.
 
-### Tulemusskaala
-- Küsimus 1: 100 punkti
-- Küsimus 2: 200 punkti
-- Küsimus 3: 300 punkti
-- Küsimus 4: 500 punkti
-- Küsimus 5: 1 000 punkti ★ (turvataseme)
-- Küsimus 6: 2 000 punkti
-- Küsimus 7: 4 000 punkti
-- Küsimus 8: 8 000 punkti
-- Küsimus 9: 16 000 punkti
-- Küsimus 10: 32 000 punkti ★ (turvataseme)
-- Küsimus 11: 64 000 punkti
-- Küsimus 12: 125 000 punkti
-- Küsimus 13: 250 000 punkti
-- Küsimus 14: 500 000 punkti
-- Küsimus 15: 1 000 000 punkti ★ (JACKPOT!)
+## Kontroll 16.11.2026
 
-### Turvatasemed (Safe Havens)
-Kui vastad valesti, langeb tulemus viimase saavutatud turvatasemeni:
-- **1 000 punkti** (pärast küsimust 5)
-- **32 000 punkti** (pärast küsimust 10)
-- **1 000 000 punkti** (mängu võitmine)
-
-### Õlekõred (Lifelines)
-1. **50:50** - Eemaldatakse 2 valet vastust
-2. **Vihje** - Kuvatakse eelnevalt kirjutatud vihje
-3. **Küsi publikult** - Simuleeritud publikuhääletus (ei ole alati 100% õige)
-
-## Teadaolevad piirangud
-
-- **Ei ole AI-d reaalajas**: Küsimused on eelnevalt genereeritud ja staatiliselt salvestatud
-- **Ei ole serverit**: Kõik töötab brauseris, ei ole andmebaasi ühendust
-- **Ei ole kasutajakontod**: Mäng on täiesti anonymne
-- **LocalStorage piirang**: Andmed on piiratud brauseri ja seadmega
-
-## Edasiarenduse võimalused
-
-- **PWA (Progressive Web App)** - Service Workeri lisamine offline töö jaoks
-- **TypeScript** - Tüübikindluse parandamiseks
-- **React/Vue** - Komponendipõhine lähenemine
-- **Serveripoolne versioon** - AI integratsioon reaalajas küsimuste genereerimiseks
-- **Mitme keele tugi** - i18n rakendamine
-- **Mitme mängija režiim** - Sünkroonne mäng kaaslastega
-- **Ühiktestid** - Testimine (Jest, Vitest)
-
-## Projekti struktuur
-
-```
-TheMillionGame/
-├── index.html              # Peamine HTML fail
-├── css/
-│   └── style.css           # Miljonimängu stiilid
-├── js/
-│   ├── app.js             # Põhiloogika ja路由
-│   ├── game.js            # Mängu mootor (skoor, lifelines, safe havens)
-│   ├── questions.js       # Küsimuste laadimine ja valimine
-│   └── tasks.js          # Ülesannete nimekirja lugemine
-├── input/
-│   ├── 001/              # JavaScripti kalkulaator
-│   │   ├── assignment.md
-│   │   ├── index.html
-│   │   ├── style.css
-│   │   └── script.js
-│   ├── 002/              # JSON-andmete kuvamine
-│   │   ├── assignment.md
-│   │   ├── index.html
-│   │   ├── style.css
-│   │   ├── script.js
-│   │   └── data.json
-│   └── 003/              # To-do list localStorage'iga
-│       ├── assignment.md
-│       ├── index.html
-│       ├── style.css
-│       └── script.js
-├── questions/
-│   ├── 001.json          # 50+ küsimust kalkulaatori jaoks (Estonian)
-│   ├── 002.json          # 50+ küsimust JSON-i jaoks (Estonian)
-│   └── 003.json          # 50+ küsimust to-do listi jaoks (Estonian)
-├── tasks.json             # Ülesannete manifest
-└── README.md
-```
-
-## Lisainfo
-
-- **Küsimuste arv**: Iga mängu jaoks on 50+ eelnevalt genereeritud küsimust
-- **Keel**: Kõik kasutajaliidese tekstid, küsimused ja selgitused on eesti keeles
-- **Result Screen**: Pärast vastamist ei kao ekraan enne, kui kasutaja vajutab "Järgmine küsimus" nuppu
-- **Selgitused**: Iga küsimuse puhul kuvatakse selgitus KÕIGELE 4-le valikule (miks iga on õige või vale)
+`npm run build`: kolm näidisülesannet. `npm test`: viis regressioonitesti (raskusjaotus, skoor, publikuprotsendid, kontekstifailid, küsimuste valideerimine). JavaScripti süntaks kontrollitud. Täielik brauserimäng, heli ja mobiilipaigutus vajavad veel tegelikku läbimängu. Taastatud algfailide esimene commit on ausalt märgistatud snapshot'ina; see ei taasta puuduvat varasemat arenduslugu.

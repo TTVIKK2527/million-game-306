@@ -77,6 +77,8 @@ window.App = (() => {
           startGame(taskId);
         });
       });
+    }).catch(error => {
+      main.innerHTML = `<div class="menu-screen"><h2>Ülesannete laadimine ebaõnnestus</h2><p>${esc(error.message)}</p><button class="menu-btn" onclick="location.reload()">Proovi uuesti</button></div>`;
     });
   }
 
