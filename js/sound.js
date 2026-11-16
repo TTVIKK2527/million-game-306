@@ -1,7 +1,7 @@
 // Sound effects and background music
 const Sound = (() => {
   let audioContext = null;
-  let isMusicMuted = false;
+  let isMusicMuted = true;
   let isSfxMuted = false;
   let themeAudio = null;
   let bgPlaying = false;
@@ -131,7 +131,7 @@ const Sound = (() => {
 
   // Calm ambient chord pad progression (loops indefinitely)
   function startBackgroundMusic() {
-    if (bgPlaying) return;
+    if (isMusicMuted || bgPlaying) return;
     try {
       var ctx = getContext();
       if (bgMasterGain) return;
@@ -232,6 +232,7 @@ const Sound = (() => {
   // Intense theme played once at the final question
   function playIntense() {
     stopBackgroundMusic();
+    if (isMusicMuted) return;
     try {
       initThemeAudio();
       if (themeAudio) {

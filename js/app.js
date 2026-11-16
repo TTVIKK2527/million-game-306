@@ -20,11 +20,18 @@ window.App = (() => {
 
     var musicBtn = document.getElementById('music-toggle');
     if (musicBtn) {
+      function updateMusicControl(isMuted) {
+        musicBtn.classList.toggle('muted', isMuted);
+        musicBtn.textContent = isMuted ? '🔇' : '🎵';
+        musicBtn.title = isMuted ? 'Lülita taustamuusika sisse' : 'Lülita taustamuusika välja';
+        musicBtn.setAttribute('aria-label', musicBtn.title);
+        musicBtn.setAttribute('aria-pressed', String(!isMuted));
+      }
+      updateMusicControl(!Sound.isMusicOn());
       musicBtn.addEventListener('click', function() {
         Sound.resumeContext();
         var isMuted = Sound.toggleMusic();
-        musicBtn.classList.toggle('muted', isMuted);
-        musicBtn.textContent = isMuted ? '🔇' : '🎵';
+        updateMusicControl(isMuted);
       });
     }
 
