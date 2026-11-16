@@ -1,0 +1,902 @@
+[
+  {
+    "level": 1,
+    "question": "Mis on selle ülesande põhieesmärk?",
+    "options": [
+      "Luua server, mis hoiab ülesandeid andmebaasis kuid see ei vasta täpselt",
+      "Luua to-do list, mis salvestab ülesandeid localStorage'i ja laeb need levinud arvamus, kuid see ei vasta",
+      "Luua kalkulaator, mis teeb matemaatilisi tehteid mis tunduks loogiliseks",
+      "Luua mäng, kus tuleb koguda punkte ülesannete eest mis tunduks loogilise"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, mida tehakse ülesannetega ja kus neid hoitakse.",
+    "explanations": [
+      "Vale: Tegu on frontend-rakendusega, mitte serveriga. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Eesmärk on luua ülesannete haldur, mis kasutab localStorage'i andmete säilitamiseks.",
+      "Vale: Kalkulaator on erinev ülesanne. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Tegu ei ole mänguga. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Milleks kasutatakse localStorage'i selles rakenduses?",
+    "options": [
+      "Ülesannete saatmiseks teisele serverile kuid see ei vasta täpselt ülesan",
+      "Ülesannete ajutiseks kuvamiseks lehel kuid see lähenemine ei ole selles",
+      "Ülesannete püsivaks salvestamiseks brauseri mällu, et need säiliksid lehel pärast sulgemist",
+      "Ülesannete kustutamiseks automaatselt iga tunni tagant mis tunduks loogi"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, miks on vaja localStorage'i ja mida see pakub.",
+    "explanations": [
+      "Vale: See ei saada andmeid kuhugi. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole ajutine, vaid püsiv brauseris. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: localStorage võimaldab andmeid hoida brauseris üle lehe laadimiste.",
+      "Vale: See ei kustuta andmeid automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Kus asuvad ülesanded pärast seda, kui need on localStorage'i salvestatud?",
+    "options": [
+      "Serveri andmebaasis mis tunduks loogiliseks, kuid on tehniliselt viga",
+      "Otse HTML-i sees <ul> elemendis kuid see lähenemine ei ole selles kontek",
+      "Kasutaja arvutis kaustas 'todoTasks' kuid see ei vasta täpselt ülesande",
+      "Kasutaja brauseri localStorage-s JSON-formaadis lähtudes ametlikest alli"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, mis on localStorage ja kuidas andmed sinna jõuavad.",
+    "explanations": [
+      "Vale: Serverit ega andmebaasi siin ei kasutata. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: HTML-i jõuavad ülesanded alles pärast laadimist localStorage'ist.",
+      "Vale: See ei ole eraldi failina kettal. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Ülesanded salvestatakse localStorage'i JSON-stringina."
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Mis juhtub, kui kasutaja sisestab tühja sisendi ja vajutab 'Lisa' nuppu?",
+    "options": [
+      "Ülesanne lisatakse ja kuvatakse ilma tekstita mis tunduks loogiliseks, kasutata",
+      "Lisatakse tühi ülesanne nimega 'Tühi' mis on levinud arvamus, kuid tegel",
+      "Brauser jookseb kokku mis tunduks loogiliseks, kuid on tehniliselt viga",
+      "Kuvatakse veateade, et ülesande sisend ei tohi olla tühi arvestades kõik"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata, kuidas kontrollitakse sisendit enne lisamist.",
+    "explanations": [
+      "Vale: See ei lisata ilma tekstita. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Tühja ülesannet ei lisata. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei põhjusta kokkujookmist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Kui sisend on tühi või ainult tühikud, kuvatakse veateade."
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Milline on õige viis lisada uus ülesanne rakendusse?",
+    "options": [
+      "Sisestada tekst sisendisse ja vajutada 'Lisa' nuppu või vajutada Enter kasutata",
+      "Kirjutada see käsitsi localStorage'i konsooli kaudu kuid see ei vasta täpselt ülesande kirjeldusele",
+      "See ei ole võimalik, sest ülesandeid saab ainult kustutada kuid see ei vastama tegelikkusele",
+      "Klikkida kursorit tühjale alale ja oodata, et ülesanne ilmuks mis tunduk"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, millised on kasutajaliidese elemendid sisestamiseks.",
+    "explanations": [
+      "Õige: Kasutaja saab sisestada teksti ja kasutada nuppu või Enter klahvi.",
+      "Vale: Konsooli kaudu lisamine ei ole taveline kasutajavoog. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Ülesandeid saab ka lisada. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Klikkimine ei loo ülesannet. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Miks kasutatakse JSON.stringify() funktsiooni enne localStorage'isse salvestamist?",
+    "options": [
+      "Et muuta ülesanded loetavamaks tekstina mis tunduks loogiliseks, kuid on ekslik arvamus",
+      "Et teisendada JavaScripti massiiv JSON-stringiks, mida localStorage oska",
+      "Et krüpteerida andmeid, et keegi neid ei näeks mis tunduks loogiliseks,",
+      "Et muuta ülesanded kümnendarvudeks mis on levinud arvamus, kuid tegeliku"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, millist tüüpi andmeid localStorage hoiab.",
+    "explanations": [
+      "Vale: See ei muuda loetavamaks (pigem vastupidi). See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: localStorage hoiab ainult stringe, seega tuleb objekt teisendada stringiks.",
+      "Vale: See ei ole krüpteerimine. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei tegele kümnendarvudega. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Miks kasutatakse JSON.parse() funktsiooni pärast localStorage'ist lugemist?",
+    "options": [
+      "Et teisendada JSON-string JavaScripti massiiviks, mida saab töödelda",
+      "Et eemaldada tühikud stringi algusest ja lõpust mis on levinud arvamus,",
+      "Et krüpteerida andmeid turvalisuse tagamiseks mis on levinud arvamus, kuid see ei vasta tegelikkusele",
+      "Et muuta string loetavamaks HTML-is kuid see lähenemine ei ole selles kontekstis sobiv"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, millist tüüpi andmeid localStorage tagastab.",
+    "explanations": [
+      "Õige: localStorage tagastab stringi, seega tuleb see teisendada massiiviks.",
+      "Vale: See ei eemalda tühikuid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole krüpteerimine. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei muuda HTML-is loetavamaks. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Kuidas käitub JavaScript, kui localStorage on tühi (ülesandeid ei ole)?",
+    "options": [
+      "Viskab erindi (TypeError) ja rakendus katkeb täielikult",
+      "Tagastab tühja tabeli <ul>, kus pole ühtegi rida",
+      "Loob automaatselt näidisülesanded ja kuvab need",
+      "Tagastab null või undefined, mida tuleb kontrollida enne kasutamist"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, mis juhtub, kui püüad lugeda olematut võtit.",
+    "explanations": [
+      "Vale: Erindit ei visata, see tuleb käsitleda.",
+      "Vale: See ei loo automaatselt tabelit.",
+      "Vale: Näidisülesandeid ei looda automaatselt.",
+      "Õige: localStorage.getItem() tagastab null, kui võtit ei eksisteeri."
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Kuidas lisatakse uus ülesanne massiivi sisse enne salvestamist?",
+    "options": [
+      "Kasutades concat() meetodit, mis liidab kaks massiivi",
+      "Kasutades unshift() meetodit, mis lisab elemendi massiivi algusesse",
+      "Kasutades push() meetodit, mis lisab elemendi massiivi lõppu",
+      "Kasutades splice() meetodit, mis asendab olemasoleva elemendi"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, millist meetodit kasutatakse elemendi lisamiseks massiivi lõppu.",
+    "explanations": [
+      "Vale: concat() loob uue massiivi, ei muuda olemasolevat.",
+      "Vale: unshift() lisaks algusesse, mitte lõppu.",
+      "Õige: push() lisab uue ülesande massiivi lõppu.",
+      "Vale: splice() on mõeldud eemaldamiseks või asendamiseks."
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Miks lisatakse sündmuse kuulaja DOMContentLoaded sündmusele, mitte ei kirjutata kood otse skripti algusesse?",
+    "options": [
+      "Et muuta koodi käivitamine kiiremaks, sest DOMContentLoaded on asünkroonne",
+      "Et tagada, et kõik HTML elemendid on laetud ja kättesaadavad enne, kui nõuetele",
+      "Et vältida JavaScripti koodi käivitumist üldse, kuni kasutaja vajutab nuppu",
+      "Et eemaldada vajadus kasutada let või const muutujaid mis on levinud arvamus, kuid see ei vasta"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, mis juhtub, kui proovida document.getElementById() enne, kui element on DOM-i lisatud.",
+    "explanations": [
+      "Vale: See ei muuda kiirust, vaid tagab, et elemendid on olemas.",
+      "Õige: Enne DOM-i valmimist ei ole elemendid olemas, seega tuleb oodata DOMContentLoaded sündmust.",
+      "Vale: See ei välista koodi käivitumist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Muutujate tüübiga see ei ole seotud. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Kuidas kuvatakse ülesanded lehel pärast nende laadimist localStorage'ist?",
+    "options": [
+      "Kuvatakse otse konsooli (console.log), mitte lehel",
+      "Luuakse <div> elemendid ja lisatakse <body> lõppu",
+      "Kuvatakse hüpikakende (alert) abil ükshaaval",
+      "Luuakse <li> elemendid ja lisatakse <ul> elemendi sisse"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata renderTasks() funktsiooni ja mõtle, millist HTML elemente see kasutab.",
+    "explanations": [
+      "Vale: Konsool on mõeldud silumiseks, mitte ülesannete kuvamiseks.",
+      "Vale: <div> elemendid ei ole mõeldud nimekirja jaoks.",
+      "Vale: alert() ei ole ülesannete kuvamiseks mõeldud.",
+      "Õige: Funktsioon loob <li> elemendid ja lisab need <ul> sisse."
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Mis juhtub, kui localStorage on tühi (ülesandeid ei ole salvestatud)?",
+    "options": [
+      "Brauser viskab erindi ja leht laeb uuesti",
+      "Kuvatakse tühi nimekiri, kuna ülesandeid ei laeta ega kuvata",
+      "Kuvatakse veateade, et ülesandeid ei leitud",
+      "JavaScript loob automaatselt näidisülesanded"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, mis juhtub, kui andmeid ei ole ja funktsioon püüab neid kuvada.",
+    "explanations": [
+      "Vale: Erindit ei visata.",
+      "Õige: Kui ülesandeid ei ole, jääb nimekiri tühjaks.",
+      "Vale: Veateadet ei pruugi kuvada, kui andmeid lihtsalt ei ole.",
+      "Vale: Näidisülesandeid ei looda automaatselt."
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Miks kasutatakse ülesannete kuvamiseks textContent omadust ja mitte innerHTML?",
+    "options": [
+      "innerHTML on liiga aeglane ja tekitab jõudluse probleeme kuid see ei vastama tegelikkusele",
+      "innerHTML ei tööta kaasaegsetes brauserites enam kuid see ei vasta täpse",
+      "textContent on turvalisem, kuna see ei tõlgenda HTML-i ega pahatahtlikku",
+      "textContent muudab automaatselt teksti suuruse ja värvi mis tunduks loog"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milline on peamine turvarisk innerHTML kasutamisel.",
+    "explanations": [
+      "Vale: See ei ole peamiselt kiiruse küsimus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: innerHTML töötab brauserites edasi. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: textContent käsitleb sisu tekstina, mitte HTML-ina, mis välistab XSS rünnakud.",
+      "Vale: textContent ei muuda vormindust ega stiile. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Kuidas on struktureeritud selle rakenduse JavaScripti kood ja miks just nii?",
+    "options": [
+      "Kõik on kirjutatud ühte suurde funktsiooni, et vältida funktsioonide vahelist segadust",
+      "Kood on kirjutatud otse HTML-i sisse script märgendisse mis on levinud arvamus",
+      "Funktsioonid on jaotatud mitme faili vahel, et igaüks tegeleks täpselt ühe asjaga",
+      "Kood on jaotatud funktsioonideks: addTask(), renderTasks() ja sündmuse kasutata"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata script.js faili struktuuri ja mõtle sellele, miks funktsioonide eraldamine on kasulik.",
+    "explanations": [
+      "Vale: See pole hea tava, suur funktsioon muudab koodi raskemaks.",
+      "Vale: Kood on eraldi failis, mitte HTML-is. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Kõik on ühes failis (script.js), mitte mitmes. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Eraldamine muudab koodi modulaarsemaks, loetavamaks ja hõlpsamini muudetavaks."
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Miks luuakse iga ülesande jaoks eraldi <li> element ja mitte kasutata ühte fikseeritud elementi?",
+    "options": [
+      "See muudab ülesannete kuvamise kiiremaks mis tunduks loogiliseks, kuid on valelemas",
+      "See on ainus viis, kuidas nimekirja saab luua mis tunduks loogiliseks, kasutata",
+      "Eraldi elemendid võimaldavad kuvada mitu ülesannet korraga ja neid erald",
+      "See takistab kasutajal ülesandeid kustutamast mis on levinud arvamus, kuid see ei vasta tegelikkusele"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, miks iga ülesanne vajab eraldi elementi.",
+    "explanations": [
+      "Vale: See ei mõjuta oluliselt kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Eraldi elemendid võimaldavad mitut ülesannet kuvada ja neid eraldi kustutada.",
+      "Vale: See ei takista kustutamist. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Kuidas saaks lisada ülesannetele staatuse (nt 'Tehtud', 'Pooleli'), ilma olemasolevat struktuuri rikkumata?",
+    "options": [
+      "Kasutada ainult tühja staatusega ülesandeid kuid see lähenemine ei ole sobiv",
+      "See ei ole võimalik ilma serveripoolse koodita mis on levinud arvamus, kasutata",
+      "Lisada iga ülesande objektile staatuse väli ja uuendada renderdamist selle ülesande jaoks sobiv",
+      "Eemaldada kõik olemasolevad ülesanded ja asendada need uutega mis on levinud arvamus, kuid see ei vasta"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, kuidas lisada objektile uus väli ilma koodi ümber kirjutamata.",
+    "explanations": [
+      "Vale: Staatusega ülesandeid saab luua. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on täiesti võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Objektile saab lisada uue välja ja seda kuvada renderdamisel.",
+      "Vale: Olemasoleva kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Miks võib olla oluline, et ülesannete kuvamiseks ja lisamiseks on eraldi funktsioonid?",
+    "options": [
+      "See muudab ülesannete lisamise kiiremaks kuid see lähenemine ei ole sell",
+      "See takistab kasutajal vigaseid ülesandeid sisestamast kuid see lähenemi",
+      "See on ainus viis, kuidas brauseris teksti saab kuvada kuid see lähenemi",
+      "See võimaldab koodi paremini testida ja muuta ilma teisi osi mõjutamata"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, miks funktsioonide eraldamine on hea tava.",
+    "explanations": [
+      "Vale: See ei mõjuta kiirust oluliselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei takista vigaseid sisendeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Eraldamine võimaldab ühte osa muuta ilma teisi mõjutamata."
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Kuidas saaks lisada ülesannete filtreerimise (nt näita ainult tehtud ülesandeid)?",
+    "options": [
+      "Muuta HTML-i nimekirja nii, et see filtreeriks ülesanded automaatselt",
+      "Kasutada filter() meetodit, et leida ülesanded, mille staatus on 'Tehtud'",
+      "Eemaldada kõik ülesanded ja lasta kasutajal need uuesti sisestada",
+      "See ei ole võimalik, sest filtreerimine nõuab alati serverit"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, millist meetodit kasutatakse massiivi filtreerimiseks JavaScriptis.",
+    "explanations": [
+      "Vale: HTML ei suuda filtreerida andmeid.",
+      "Õige: filter() meetodiga saab leida ülesanded, mis vastavad tingimusele.",
+      "Vale: Ülesannete kustutamine ei ole vajalik.",
+      "Vale: Filtreerimine on võimalik ka frontendis."
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Kuidas saaks lisada ülesannete sorteerimise (nt tähestiku järgi)?",
+    "options": [
+      "Muuta HTML-i nimekirja nii, et see sorteeriks ülesanded automaatselt",
+      "See ei ole võimalik ilma serveripoolse koodita kuid see lähenemine ei ole sobiv",
+      "Kasutada sort() meetodit, et järjestada ülesanded tähestiku järjekorda",
+      "Eemaldada kõik ülesanded ja lasta kasutajal need tähestikku järjestada"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, millist meetodit kasutatakse massiivi sorteerimiseks JavaScriptis.",
+    "explanations": [
+      "Vale: HTML ei suuda sorteerida andmeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: sort() meetodiga saab ülesandeid sorteerida. See on korrektne vastus, sest see vastab täpselt küsimusele.",
+      "Vale: Ülesannete kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Miks võib olla probleemne kasutada globaalseid muutujaid (nt window.tasks) ülesannete hoidmiseks?",
+    "options": [
+      "Need põhjustavad brauseri kokkujooksmise iga klikiga mis tunduks loogili",
+      "Need takistavad ülesannete kuvamist lehel mis on levinud arvamus, kuid tegelikult",
+      "Need muudavad ülesannete lisamise aeglasemaks kuid see lähenemine ei ole sobiv",
+      "Need võivad tekitada konflikte teiste skriptidega ja muudavad koodi rask"
+    ],
+    "correctIndex": 3,
+    "hint": "Uuri, millised on globaalsete muutujate puudused suuremates projektides.",
+    "explanations": [
+      "Vale: See ei põhjusta kokkujooksmist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Ülesannete kuvamist see ei takista. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta kiirust oluliselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Globaalsed muutujad on kättesaadavad kõikjal ja võivad tekitada soovimatuid kõrvalmõjusid."
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Kuidas saaks lisada ülesande kustutamise funktsionaalsuse (nt kustuta nupp iga ülesande juures)?",
+    "options": [
+      "See ei ole võimalik, sest ülesandeid saab ainult lisada mis on levinud arvamus",
+      "Lisada iga <li> elemendile kustuta nupp ja sündmuse kuulaja, mis eemalda",
+      "Eemaldada kõik ülesanded korraga ja lasta kasutajal alustada uuesti",
+      "Kasutada ainult tühja nimekirja ja ignoreerida kustutamist mis tunduks loogiline"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, kuidas lisada interaktiivsust nimekirja elementidele.",
+    "explanations": [
+      "Vale: Ülesandeid saab ka kustutada. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Iga ülesande juurde saab lisada kustuta nupu ja sündmuse kuulaja.",
+      "Vale: Kõige kustutamine ei ole kasutajasõbralik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Ignoreerimine ei ole lahendus. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Kuidas käitub rakendus, kui kasutaja sisestabväga pika teksti ülesande sisendiks?",
+    "options": [
+      "Brauser viskab erindi ja rakendus katkeb täielikult kuid see ei vasta täpselt ülesande kirjeldusele",
+      "localStorage ei lase pikka teksti lisada ja kuvatakse veateade mis tundu",
+      "Tekst lisatakse localStorage'i ja kuvatakse lühidalt, või võib tekkida paika",
+      "JavaScript kärpib teksti automaatselt ja lisab kolm punkti (...) kuid see pole siin kasutusel"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, millised on localStorage'i mahupiirangud ja kuidas brauserid neid käsitlevad.",
+    "explanations": [
+      "Vale: Erindit ei visata, see tuleb käsitleda. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: localStorage lubab pikka teksti, kuni ei ületa piirangut.",
+      "Õige: localStorage'il on umbes 5MB piirang, suuremate andmetega võib tekkida probleeme.",
+      "Vale: JavaScript ei kärbi teksti automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Miks võib olla probleemne kasutada otse innerHTML-i ülesannete kuvamiseks, kui sisend võib olla pahatahtlik?",
+    "options": [
+      "innerHTML on liiga aeglane ja tekitab jõudluse probleeme kuid see lähene",
+      "Kui sisend sisaldab <script> märgendeid, võib see käivitada pahatahtliku",
+      "See tekitab brauseri kokkujooksmise, kuna innerHTML on iganenud kuid see ei vasta ülesande ootustele",
+      "innerHTML ei suuda kuvada pikki tekste korrektselt kuid see lähenemine erinev"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, milline on peamine turvarisk, kui kuvada kasutaja sisendit ilma kodeerimata.",
+    "explanations": [
+      "Vale: See ei ole peamiselt kiiruse küsimus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: innerHTML käsitleb sisu HTML-ina, mis võimaldab pahatahtliku skripti käivitamist.",
+      "Vale: innerHTML ei ole iganenud. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Pikkade tekstidega see töötab normaalselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Kuidas saaks lisada ülesannete kategooriad (nt 'Töö', 'Isiklik'), ilma olemasolevat struktuuri rikkumata?",
+    "options": [
+      "Lisada iga ülesande objektile kategooria väli ja filtreerida neid selle",
+      "Kasutada ainult 'Muu' kategooriat ja ignoreerida teisi mis tunduks loogi",
+      "Eemaldada kõik olemasolevad ülesanded ja asendada need ainult töö ülesan",
+      "See ei ole võimalik ilma serveripoolse koodita mis on levinud arvamus, kasutata"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, kuidas lisada objektile uus väli ja seda kasutada.",
+    "explanations": [
+      "Õige: Objektile saab lisada kategooria välja ja seda kasutada filtreerimiseks.",
+      "Vale: Mitu kategooriat saab luua. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Olemasoleva kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on täiesti võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Kuidas saaks rakendada ülesannete otsingut (nt otsi ülesandeid nime järgi)?",
+    "options": [
+      "Eemaldada kõik ülesanded ja lasta kasutajal need uuesti sisestada",
+      "See ei ole võimalik, sest otsimine nõuab alati serverit mis tunduks loog",
+      "Muuta HTML-i sisendit nii, et see filtreeriks ülesanded automaatselt",
+      "Kasutada filter() meetodit ja includes() meetodit, et leida ülesanded, mis vastavad"
+    ],
+    "correctIndex": 3,
+    "hint": "Uuri, milliseid meetodeid kasutatakse teksti otsimiseks massiivist.",
+    "explanations": [
+      "Vale: Ülesannete kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Otsimine on võimalik ka frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: HTML ei suuda filtreerida andmeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: filter() ja includes() abil saab ülesandeid otsida. See on korrektne vastus, sest see vastab täpselt küsimusele."
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Miks võib olla kasulik eraldada ülesannete loogika (nt addTask, deleteTask) eraldi mooduliks?",
+    "options": [
+      "See muudab ülesannete lisamise kiiremaks mis on levinud arvamus, kuid tegelikult ei ole see õige",
+      "See on ainus viis, kuidas JavaScriptis funktsioone saab kirjutada",
+      "See muudab koodi paremini testitavaks ja võimaldab seda hiljem muudes projektides kasutada",
+      "See takistab kasutajal ülesandeid valesti kasutamast kuid see ei vasta tegelikult"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, miks moodulipõhine arendus on kasulik.",
+    "explanations": [
+      "Vale: See ei mõjuta kiirust oluliselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Eraldamine võimaldab funktsioone testida ja kasutada neid uuesti.",
+      "Vale: See ei takista vale kasutamist. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Kuidas saaks rakendada ülesannete muutmise (edit) funktsionaalsuse?",
+    "options": [
+      "Eemaldada ülesanne ja lasta kasutajal see uuesti sisestada",
+      "Kasutada ainult uute ülesannete lisamist ja ignoreerida muutmist",
+      "Topeltklõps ülesande peal muudab selle sisendväljaks ja salvestab muudatuse",
+      "See ei ole võimalik, sest ülesandeid saab ainult kustutada"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, kuidas lisada ülesande muutmise funktsionaalsus.",
+    "explanations": [
+      "Vale: Kustutamine ja uuesti lisamine ei ole kasutajasõbralik.",
+      "Vale: Muutmist ei tule ignoreerida.",
+      "Õige: Topeltklõps võimaldab ülesannet muuta ja salvestada muudatuse.",
+      "Vale: Ülesandeid saab ka muuta."
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Kuidas käitub brauser, kui rakendus kutsutakse välja mitu korda kiiresti (lisada mitu ülesannet korraga)?",
+    "options": [
+      "Ülesanded lisatakse järjest, kuid localStorage'i salvestamine võib olla",
+      "Rakendus blokeerib automaatselt topelt-klikid, et vältida probleeme",
+      "Brauser viskab erindi ja rakendus katkeb täielikult kuid see lähenemine",
+      "Ainult viimane klik arvestatakse, ülejäänud ignoreeritakse kuid see lähe"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, kuidas brauser käsitleb mitut kiiret sündmust.",
+    "explanations": [
+      "Õige: Kiired klikid võivad tekitada mitu paralleelset salvestamist.",
+      "Vale: Brauser ei blokeeri topelt-klikke automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Erindit ei visata, kood jätkab tööd. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Kõik klikid arvestatakse, kui neid ei piirata. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Miks võib olla probleemne luua kõik funktsioonid ühte suurde funktsiooni?",
+    "options": [
+      "See on ainus viis, kuidas brauseris JavaScripti saab kirjutada, mis on levinud arvamusvinud arvamus, kuid see ei vasta",
+      "See muudab koodi raskemini testitavaks ja takistab osade uuestikasutamist",
+      "See takistab kasutajal pikki ülesandeid sisestamast kuid see ei vasta täpselt ülesande kirjeldusele",
+      "See muudab ülesannete lisamise kiiremaks kuid see lähenemine ei ole sell"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, miks funktsioonide eraldamine on hea tava.",
+    "explanations": [
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Suur funktsioon muudab koodi raskemaks mõista, testida ja muuta.",
+      "Vale: See ei mõjuta sisendeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Kuidas saaks lisada ülesannete tähtsuse (priority) süsteemi (nt Kõrge, Madal)?",
+    "options": [
+      "Eemaldada kõik olemasolevad ülesanded ja asendada need ainult madala prioriteedigaoriteediga",
+      "See ei ole võimalik ilma serveripoolse koodita mis on levinud arvamus, kasutata",
+      "Lisada iga ülesande objektile priority väli ja sorteerida neid selle põhjal",
+      "Kasutada ainult keskmise prioriteediga ülesandeid mis on levinud arvamus"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, kuidas lisada objektile uus väli ja seda kasutada sorteerimiseks.",
+    "explanations": [
+      "Vale: Olemasoleva kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on täiesti võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Objektile saab lisada priority välja ja seda kasutada sorteerimiseks.",
+      "Vale: Mitu prioriteeti saab luua. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Kuidas saaks lisada ülesannete synkroonimise teiste brauseritega (nt WebSocket-iga)?",
+    "options": [
+      "See ei ole võimalik ilma serverita mis on levinud arvamus, kuid tegeliku",
+      "Kasutada ainult kohalikku ülesandeid ja ignoreerida synkroonimist",
+      "Kasutada WebSocket-i, et saata ja vastu võtta ülesannete muudatusi reaal",
+      "Eemaldada kõik ülesanded ja lasta kasutajal neid uuesti sisestada"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milliseid tehnoloogiaid pakub JavaScript reaalajas suhtluseks.",
+    "explanations": [
+      "Vale: See on võimalik ka WebSocket-iga ilma serverita (lokaalselt).",
+      "Vale: Synkroonimist ei tule ignoreerida. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: WebSocket võimaldab ülesandeid synkroonida teiste brauseritega.",
+      "Vale: See ei ole praktiline lahendus. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Miks võivad erinevad brauserid käsitleda väikeseid erinevusi rakenduse töös?",
+    "options": [
+      "See ei ole oluline, sest kõik brauserid on täiesti ühilduvad mis tunduks",
+      "Vältimine ei ole võimalik, sest brauserid on alati erinevad mis on levin",
+      "Standardsed veebitehnoloogiad on enamikus sama, aga väikesed erinevused",
+      "Brauserid on täiesti erinevad ja kood peab olema eraldi iga brauseri jaoks"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, millised on peamised brauseritevahelised erinevused.",
+    "explanations": [
+      "Vale: Erinevusi on olemas, aga need ei ole suured. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Paljusid probleeme saab lahendada polüfillidega. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Enamik standardsid on ühised, aga väikesed erinevused võivad esineda.",
+      "Vale: See pole tõsi, standardsed tehnoloogiad on enamikus ühised."
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Kuidas saaks rakendada PWA-d (Progressive Web App), et see töötaks ka offline režiimis?",
+    "options": [
+      "Eemaldada kõik JavaScripti koodid ja asendada need täielikult HTML-iga",
+      "Lisada Service Worker, manifest fail ja vahemälu strateegia staatilistel",
+      "Muuta rakendus täielikult serveripoolseks rakenduseks mis on levinud arvamus, kuid see ei vasta tegelikkusele",
+      "See ei ole võimalik, sest PWA nõuab alati serverit mis on levinud arvamu"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, millised on PWA põhikomponendid ja kuidas need töötavad.",
+    "explanations": [
+      "Vale: See ei ole PWA eesmärk. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Service Worker võimaldab vahemällu salvestada faile ja töötada offline režiimis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: PWA saab töötada ka ilma serverita (staatiline). See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Kuidas saaks ümber ehitada rakenduse kasutades tänapäevaseid raamistikke (nt React, Vue)?",
+    "options": [
+      "Tuleb eemaldada kõik HTML-i ja CSS-i failid kuid see lähenemine ei ole sobiv",
+      "Kõik olemasolev kood tuleb kustutada ja alustada nullist kuid see lähene",
+      "See ei ole võimalik, sest raamistikud ei töötaks sellega kuid see lähene",
+      "Komponendipõhine arhitektuur, oleku (state) haldamine raamistikus, virtu"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, milliseid eeliseid toovad kaasa raamistikud.",
+    "explanations": [
+      "Vale: HTML ja CSS on ikka vajalikud. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Kustutamine ei ole vajalik, koodi saab ümber kirjutada.",
+      "Vale: Raamistikud sobivad suurepäraselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Raamistikud toovad sisse komponendid, oleku halduse ja reaktiivsuse."
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Milline oleks kõige olulisem refaktoreerimise samm, kui rakendus peaks saama toetama piiramatul hulgal ülesandeid?",
+    "options": [
+      "Luua ülesannete register (map/object), kus iga ülesanne on eraldi objekt",
+      "Eemaldada kõik kommentaarid, et kood oleks lühem mis tunduks loogiliseks",
+      "Kirjutada kõik ümber ühte reasse ilma tühikute ja reavahetusteta, mis tunduks loogiline kuid valeduks loogiline, kuid vale",
+      "See ei ole võimalik ilma serverita mis tunduks loogiliseks, kuid on tehn"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, kuidas lisada uusi ülesandeid ilma koodi suurendamata.",
+    "explanations": [
+      "Õige: Register võimaldab hõlpsasti lisada uusi ülesandeid. See on korrektne vastus, sest see vastab täpselt küsimusele.",
+      "Vale: Kommentaarid on olulised. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole hea tava. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Kuidas saaks selgitada rakenduse näitel erinevust funktsionaalse ja imperatiivse programmeerimise vahel?",
+    "options": [
+      "Funktsionaalne programmeerimine on aeglasem, imperatiivne kiirem, kuid see ei ole öige",
+      "See ei ole võimalik selgitada, sest JavaScript ei toeta funktsionaalset",
+      "Funktsionaalses lähenemises on funktsioonid puhtad ja ilma kõrvalmõjudet",
+      "Funktsionaalses koodis ei ole funktsioone, imperatiivses on ainult funkt"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milles seisneb puhas funktsioon ja millal on kõrvalmõjud olemas.",
+    "explanations": [
+      "Vale: Kiirus ei ole peamine erinevus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: JavaScript toetab funktsionaalset programmeerimist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Funktsionaalses on funktsioonid puhtad, imperatiivses muudetakse olekut.",
+      "Vale: Funktsionaalses on kindlasti funktsioonid. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Milline turvarisk tekib, kui kuvada kasutaja sisendit ilma kontrollimata otse tabelis innerHTML-iga?",
+    "options": [
+      "XSS-rünnak, kus ründaja saab käivitada oma koodi teiste kasutajate braus",
+      "Brauseri kokkujooksmine, sest sisend on liiga pikk kuid see lähenemine ei ole sobivrinev",
+      "CSRF rünnak, kus ründaja varastab küpsised ja sessioonid kuid see ei vastama tegelikkusele",
+      "SQL-injektsioon, kus ründaja kustutab andmebaasi andmed kuid see ei vast"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, milline on peamine turvarisk sisendite käsitsemisel.",
+    "explanations": [
+      "Õige: XSS tekib, kui sisend sisaldab <script> märgendeid ja see kuvatakse innerHTML-iga.",
+      "Vale: See ei põhjusta kokkujooksmist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: CSRF nõuab teisi tingimusi. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: SQL-injektsioon puudutab andmebaasi. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Kuidas saaks rakendada HEAD (Hypertext Application Language) põhimõtteid?",
+    "options": [
+      "Eemaldada kõik kommentaarid, et kood oleks lühem kuid see ei vasta täpse",
+      "Eraldada andmete allikas, andmete töötlemine ja kuvamine eraldi kihtidesse",
+      "Kõik kood kirjutada ühte reasse ilma tühikute ja reavahetusteta kuid see ei vasta ülesande ootustele",
+      "See ei ole võimalik, sest JavaScript ei toeta kihitusloogikat, mis on levinud arvamusinud arvamus, kuid see ei vasta"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, kuidas muuta rakendus paindlikumaks.",
+    "explanations": [
+      "Vale: Kommentaarid on olulised. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Kihitus ja vastutuse eraldamine võimaldavad osi asendada.",
+      "Vale: See ei ole hea tava. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: JavaScript toetab kihitust. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Miks võib olla vajalik lisada rakendusele Content Security Policy (CSP) header või meta märgend?",
+    "options": [
+      "See kiirendab andmete laadimist mis tunduks loogiliseks, kuid on tehnili",
+      "See piirab, milliseid ressursse ja skripte saab laadida, vähendades XSS",
+      "See annab kasutajale rohelise tee märguande mis on levinud arvamus, kuid",
+      "See muudab tabeli veerud laiemaks mis tunduks loogiliseks, kuid on tehni"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, mida CSP teeb ja milliseid turvariske see vähendab.",
+    "explanations": [
+      "Vale: See ei kiirenda laadimist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: CSP piirab domeene ja skriptide allikaid. See on korrektne vastus, sest see vastab täpselt küsimusele.",
+      "Vale: See ei muuda värvi. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta laiust. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Kuidas muuta rakendus kättesaadavamaks (accessibility) puudega inimestele?",
+    "options": [
+      "Eemaldada kõik animatsioonid ja muuta tekst suuremaks mis on levinud arvamus, kuid see ei vasta tegelikkusele",
+      "Lisada ARIA atribuudid, korrektne märgendamine ja tagada klahviatuuri tugi",
+      "See ei ole võimalik, sest puudega inimesed ei kasuta veebirakendusi",
+      "Muuta rakendus selliseks, et see töötaks ainult ekraanilugemise tarkvaraga"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, milliseid võimalusi pakub veebiarendus ligipääsetavuse parandamiseks.",
+    "explanations": [
+      "Vale: See on liiga pindmine. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: ARIA, semantiline HTML ja klahviatuuri tugi on põhiosad.",
+      "Vale: See on võimalik ja soovitatav. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei piisa. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Milline võiks olla alternatiivne lähenemine rakenduse loogikale, kui soovida tugevaid funktsioone?",
+    "options": [
+      "Kasutada olemasolevaid teeke nagu lodash või underscore",
+      "Eemaldada kõik JavaScript ja asendada see CSS-iga",
+      "Kirjutada rakendus ümber C++ keeles ja kompileerida WebAssembly'iks",
+      "See on võimatu, sest brauseris ei saa teha rasket loogikat"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, milliseid teeke pakub JavaScript täiendavate funktsioonide jaoks.",
+    "explanations": [
+      "Õige: Teegid nagu lodash pakuvad palju lisafunktsioone.",
+      "Vale: CSS ei suuda loogikat teha.",
+      "Vale: WebAssembly on võimalik, aga liiga keeruline.",
+      "Vale: Rasket loogikat saab teha JavaScriptis."
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Kuidas saaks rakendada Domain-Driven Design (DDD) terminoloogiat?",
+    "options": [
+      "See ei ole võimalik, sest DDD nõuab alati serverit mis tunduks loogilise",
+      "Ülesanded on domeenobjektid, nende kuvamine on esitluskiht (presentation",
+      "Kõik on lihtsalt üks suur kiht, kus HTML, CSS ja JS on segamini kuid see ei vasta ülesande ootustele",
+      "Tuleb eemaldada kõik kihid ja lasta andmetel voolata otse HTML-i, kuid see ei ole turvaline"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, millest koosneb DDD ja kuidas see veebirakenduses välja näeb.",
+    "explanations": [
+      "Vale: DDD printsiipe saab rakendada ka frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Iga osa rakenduses vastab mingile kihile või domeenile.",
+      "Vale: See ei ole korrektne arhitektuur. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole soovitatav. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Kuidas saaks ümber ehitada rakenduse kasutades tänapäevaseid tööriistu (nt TypeScript, Webpack)?",
+    "options": [
+      "Lisada TypeScript andmetüüpide defineerimiseks ja Webpack koondamiseks",
+      "See ei ole võimalik, sest tänapäevased tööriistad ei töötaks väikese rakenduse korralenduse jaoks",
+      "Tuleb kustutada kogu olemasolev kood ja alustada nullist ilma tööriistadeta",
+      "Eemaldada kõik JavaScripti failid ja asendada need tekstifailidega"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, milliseid eeliseid annab tüübikontroll ja koodi analüüs.",
+    "explanations": [
+      "Õige: Need tööriistad aitavad vältida vigu ja parandada loetavust.",
+      "Vale: Need sobib väikeste rakenduste jaoks.",
+      "Vale: Alustamine nullist ei ole vajalik.",
+      "Vale: Tekstifailid ei asenda JavaScripti."
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Milline võiks olla parim viis rakendada krüptimist, kui tegu on tundliku info töötlemisega?",
+    "options": [
+      "Brauseris tuleks kasutada Web Crypto API-d andmete krüpteerimiseks",
+      "See ei ole võimalik, sest brauser ei toeta krüptimist",
+      "Tuleb eemaldada tundlikud andmed ja kuvada ainult nimi",
+      "Andmed tuleks kustutada ja asendada tähtedega X"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, milliseid krüptimise võimalusi pakub tänapäevane brauser.",
+    "explanations": [
+      "Õige: Web Crypto API võimaldab turvaliselt andmeid krüpteerida.",
+      "Vale: Brauser toetab krüptimist.",
+      "Vale: See ei ole ainus lahendus.",
+      "Vale: See ei ole päris krüptimine."
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Kuidas käituvad erinevused brauserite vahel rakenduse renderdamisel?",
+    "options": [
+      "See ei ole oluline, sest kõik brauserid on ühilduvad, kuid see ei vasta täpseltegelikult",
+      "Erinevused on nii suured, et rakendus ei töötaks teises brauseris",
+      "Üks brauser kuvab tabeli, teine kuvab ainult päised mis tunduks loogilis",
+      "Erinevused võivad olla väikesed (nt vaikimisi stiilid), aga suuri funkts"
+    ],
+    "correctIndex": 3,
+    "hint": "Uuri, milline on HTML elemendi ja JavaScripti fetch API standardiseeritus.",
+    "explanations": [
+      "Vale: Erinevusi on alati olemas. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Standardsed tehnoloogiad töötavad enamikus brauserites.",
+      "Vale: See ei ole tõenäoline. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Enamik brausereid järgib standardeid, väiksed erinevused võivad olla stiilides."
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Kuidas saaks rakenduse täielikult ümber ehitada kasutades funktsionaalset programmeerimist (FP)?",
+    "options": [
+      "See ei ole võimalik, sest JavaScript ei toeta funktsionaalset programmee",
+      "Funktsioonid eemaldatakse täielikult ja asendatakse muutujate kontrollidega",
+      "Iga tehe oleks puhas funktsioon (pure function), olekut ei muudetaks otse",
+      "Kõik muutujad asendatakse globaalsete objektidega mis on levinud arvamus"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milles seisneb funktsionaalne programmeerimine.",
+    "explanations": [
+      "Vale: JavaScript toetab FP paradigma. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole FP. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: FP-s on funktsioonid puhtad, andmed on muutumatud (immutable).",
+      "Vale: Globaalsed objektid ei ole FP olemus. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Milline oleks parim viis rakenduse jõudluse optimeerimiseks, kui see peaks töötlema väga suuri andmeid?",
+    "options": [
+      "Tuleb lülituda C++ programmeerimisele ja WebAssembly kasutamisele",
+      "Kasutada Web Workers-it, täiendavaid tehnikaid ja vältida korduvaid arvu",
+      "See ei ole võimalik, sest JavaScript on liiga aeglane mis on levinud arvamus, kuid see ei vasta tegelikkusele",
+      "Eemaldada kõik funktsioonid ja asendada need otse aritmeetiliste tehetega"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, milliseid optimeerimistehnikaid pakub JavaScript suurte andmete jaoks.",
+    "explanations": [
+      "Vale: See on liiga drastiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Web Workers ja tõhusad andmestruktuurid aitavad suurte andmete puhul.",
+      "Vale: JavaScript suudab suuri andmeid töödelda. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole mõistlik. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Kuidas saaks rakendusele lisada täiendava turvalisuse taseme?",
+    "options": [
+      "Tuleb eemaldada kõik funktsioonid ja lasta kasutajal arvutada peas",
+      "Lisada CSP, HTTPS, sisendite range valideerimine ja XSS kaitse",
+      "See ei ole võimalik, sest avalikud kohad on alati ohtlikud",
+      "Eemaldada kõik sisendväljad ja asendada need rippmenüüdega"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, millised on peamised turvameetmed veebirakenduste jaoks.",
+    "explanations": [
+      "Vale: See ei ole lahendus.",
+      "Õige: Mitmetasemeline turvalisus kaitseb erinevate rünnakute eest.",
+      "Vale: Turvalisust saab tagada.",
+      "Vale: See ei ole praktiline."
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Mis on localStorage piirangud ja kuidas see mõjutab to-do listi?",
+    "options": [
+      "localStorage mahub ligikaudu 5MB andmeid ja salvestab ainult stringe",
+      "localStorage on piiramatu ja salvestab mis tahes andmetüüpe, sh objekte",
+      "localStorage on ainult sessiooni pikkune, see kustutakse lehe sulgemisel",
+      "localStorage ei tööta erinevates brauserites, see on ainult Chrome'i jaoks"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, millised on localStorage piirangud andme suuruse ja tüübi osas",
+    "explanations": [
+      "Õige: localStorage on piiratud ~5MB-ga ja salvestab andmeid stringidena",
+      "Vale: localStorage pole piiramatu, sel on suuruse piirang",
+      "Vale: localStorage on püsiv, see ei kustu pärast brauseri sulgemist",
+      "Vale: localStorage töötab kõigis kaasaegsetes brauserites"
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Miks kasutatakse JSON.stringify() enne localStorage-sse salvestamist?",
+    "options": [
+      "et muuta andmed HTML-iks, mida saab otse lehele lisada ilma töötluseta",
+      "et andmed krüpteeritaks ja oleksid turvalisemad brauseri mälus",
+      "et muuta andmed rämpspostiks, mida keegi ei saaks lugeda ega varasta",
+      "et teisendada JavaScripti objekt (massiiv) stringiks, mida localStorage"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, millist tüüpi andmeid localStorage säilitada saab",
+    "explanations": [
+      "Vale: Andmeid ei teisendata HTML-iks, vaid JSON stringiks",
+      "Vale: Krüpteerimist ei toimu, tegemist on lihtsa teksti teisendusega",
+      "Vale: JSON.stringify ei muuda andmeid rämpsuks, vaid teisendab need stringiks",
+      "Õige: localStorage aktsepteerib ainult stringe, seega tuleb objekt teisendada"
+    ]
+  }
+]

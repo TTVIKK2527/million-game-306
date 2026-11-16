@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miljonimäng</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1>Miljonimäng</h1>
+      <div class="header-buttons">
+        <button id="music-toggle" class="music-btn" title="Lülita muusika">🎵</button>
+        <button id="sfx-toggle" class="sfx-btn" title="Lülita heliefektid">🔊</button>
+      </div>
+    </header>
+    <main id="main-content"></main>
+  </div>
+
+  <script>
+    // Compatibility shim for LibreWolf/Firefox
+    window.MillionGame = window.MillionGame || {};
+  </script>
+  <script src="js/tasks.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

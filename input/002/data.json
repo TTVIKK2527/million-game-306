@@ -1,0 +1,8 @@
+[
+  { "nimi": "Mari Maasikas", "amet": "Arendaja", "vanus": 28, "linn": "Tallinn" },
+  { "nimi": "Jaan Järve", "amet": "Disainer", "vanus": 32, "linn": "Tartu" },
+  { "nimi": "Kadri Kask", "amet": "Testija", "vanus": 25, "linn": "Pärnu" },
+  { "nimi": "Peeter Pärn", "amet": "Projektijuht", "vanus": 35, "linn": "Tallinn" },
+  { "nimi": "Liis Lepik", "amet": "Arendaja", "vanus": 29, "linn": "Viljandi" },
+  { "nimi": "Toomas Tamm", "amet": "Analüütik", "vanus": 31, "linn": "Tartu" }
+]

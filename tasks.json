@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "id": "001",
+      "name": "JavaScripti kalkulaator"
+    },
+    {
+      "id": "002",
+      "name": "JSON-andmete kuvamine"
+    },
+    {
+      "id": "003",
+      "name": "To-do list localStorage'iga"
+    }
+  ]
+}

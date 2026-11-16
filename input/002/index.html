@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON-andmete kuvamine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Töötajad</h1>
+    <div class="controls">
+      <button id="load-btn">Lae andmed</button>
+    </div>
+    <div class="error" id="error"></div>
+    <div class="table-container">
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th>Nimi</th>
+            <th>Amet</th>
+            <th>Vanus</th>
+            <th>Linn</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

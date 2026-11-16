@@ -1,0 +1,902 @@
+[
+  {
+    "level": 1,
+    "question": "Mis on selle ülesande põhieesmärk?",
+    "options": [
+      "Luua rakendus, mis salvestab kasutaja sisestatud andmed serveri andmebaasi",
+      "Luua veebirakendus, mis loeb JSON-failist andmeid ja kuvab need tabelina",
+      "Luua graafiline visualiseerimine, mis joonistab graafikuid JSON-andmete",
+      "Luua aruande generaator, mis ekspordib andmed Exceli formaadis"
+    ],
+    "correctIndex": 1,
+    "hint": "Vaata assignment.md faili ja otsi ülesande eesmärki kirjeldust.",
+    "explanations": [
+      "Vale: Salvestamine serverisse ei ole ülesande osa, tegu on frontend-rakendusega.",
+      "Õige: Ülesanne nõuab JSON-andmete lugemist ja nende kuvamist tabeli vormis.",
+      "Vale: Graafikute joonistamine ei ole ülesandes nõutud funktsionaalsus.",
+      "Vale: Eksportimine Exceli ei ole ülesandes mainitud."
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Millist funktsiooni kasutatakse JSON-andmete sorteerimiseks vanuse järgi enne tabelisse lisamist?",
+    "options": [
+      "sort((a, b) => a.vanus - b.vanus) meetodit, et järjestada kasvavalt",
+      "map() meetodit, et teisendada iga kirje uude formaati",
+      "reduce() meetodit, et arvutada kõikide kirjete vanuste summa",
+      "filter() meetodit, et eemaldada määramata vanusega kirjed"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, millist meetodit kasutatakse massiivi sorteerimiseks JavaScriptis.",
+    "explanations": [
+      "Õige: sort() meetodiga saab järjestada objektid vanuse väärtuse järgi.",
+      "Vale: map() teisendab andmeid, mitte ei sorteeri neid.",
+      "Vale: reduce() koondab andmed üheks väärtuseks, mitte ei sorteeri.",
+      "Vale: filter() eemaldab kirjed, mitte ei sorteeri neid."
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Kuidas käitub forEach() tsükkel, kui andmeid ei laeta ja massiiv on tühi?",
+    "options": [
+      "Tsükkel lisab automaatselt ühe tühja rea tabelisse kuid see ei vasta täpselt ülesande kirjeldusele",
+      "forEach kutsutakse välja ühe korra ja tagastab undefined kuid see lähene",
+      "Tsükkel ei tee midagi, sest massiiv on tühi ja funktsiooni ei kutsuta ühtegi funktsiooni välja",
+      "Viskab erindi (TypeError) ja rakendus katkeb täielikult kuid see lähenem"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, mis juhtub, kui püüad läbida tühja massiivi.",
+    "explanations": [
+      "Vale: Tühja rida ei lisata automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: forEach ei pöördu automaatselt tühja massiivi korral. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Tühja massiivi puhul funktsiooni ei kutsuta ühtegi korda.",
+      "Vale: Erindit ei visata, forEach käsitleb tühja massiivi korrektselt."
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Miks kasutatakse tabeli loomisel document.createElement() meetodit ja mitte otse innerHTML-i?",
+    "options": [
+      "Et vältida CSS-i laadimist, mis aeglustaks tabeli kuvamist kuid see ei vastama tegelikkusele",
+      "Sest createElement on oluliselt kiirem kui innerHTML suurte andmete korral",
+      "Sest innerHTML ei toeta tabeli elementide loomist kuid see lähenemine ei ole õige",
+      "Et vältida XSS-rünnakuid ja luua turvalisemalt elemendid, mille sisu on ekslik arvamus"
+    ],
+    "correctIndex": 3,
+    "hint": "Uuri, milline on peamine turvarisk innerHTML kasutamisel.",
+    "explanations": [
+      "Vale: See ei mõjuta CSS-i laadimist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Kiirus ei ole peamine erinevus, vaid turvalisus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: innerHTML toetab tabeli elementide loomist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: createElement on turvalisem, sest see ei töötle HTML-i ega võimalda skripti sisestamist."
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Kuidas pääseb ligi JSON-faili andmetele pärast nende laadimist fetch() abil?",
+    "options": [
+      "Kasutades response.text() meetodit ja seejärel eval() funktsiooni",
+      "Kasutades response.html() meetodit, mis teisendab vastuse HTML-iks",
+      "Kasutades response.json() meetodit, mis teisendab vastuse JavaScripti objekt",
+      "Kasutades response.blob() meetodit, mis teisendab vastuse binaarses form"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, millist meetodit kasutatakse fetch vastuse teisendamiseks JavaScripti objektiks.",
+    "explanations": [
+      "Vale: eval() ei ole soovitatav ja response.text() ei teisenda JSON-i automaatselt.",
+      "Vale: response.html() ei eksisteeri fetch API-s. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: response.json() teisendab JSON teksti JavaScripti objektiks/massiiviks.",
+      "Vale: blob() on mõeldud binaarandmete jaoks, mitte JSON-i jaoks."
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Mis juhtub, kui data.json sisaldab vigast JSON-i süntaksit?",
+    "options": [
+      "Brauser lisab automaatselt puuduolevad jutumärgid ja kuvab andmed",
+      "Tabel kuvatakse tühjana ilma veateadeta mis tunduks loogiliseks, kuid on ekslik arvamus",
+      "response.json() viskab erindi, mis tuleb käsitleda catch() plokis",
+      "Andmed laetakse korrektselt, kuna brauser parandab JSON-i automaatselt"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, mis juhtub, kui JSON.parse() saab vigase teksti.",
+    "explanations": [
+      "Vale: JSON-i ei paranda automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Viga tekib ja see tuleb käsitleda. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Vigase JSON-i korral viskab response.json() erindi, mida saab catch()-s käsitleda.",
+      "Vale: Brauser ei paranda JSON-i automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Kuidas lisatakse uus rida tabelisse pärast veeru (cell) loomist?",
+    "options": [
+      "Kasutades tbody.appendChild(row) meetodit, et lisada rida tabeli sisse",
+      "Kasutades tbody.innerHTML += meetodit, et lisada HTML string",
+      "Kasutades tbody.replaceChild() meetodit, et asendada vana rida",
+      "Kasutades tbody.insertRow() meetodit, et lisada rida indeksiga"
+    ],
+    "correctIndex": 0,
+    "hint": "Vaata renderTable() funktsiooni ja otsi, kuidas rida tabelisse lisatakse.",
+    "explanations": [
+      "Õige: appendChild() lisab loodud rea (tr) tbody elemendi lõppu.",
+      "Vale: innerHTML += on aeglasem ja võib tekitada probleeme.",
+      "Vale: replaceChild() asendab olemasoleva, mitte lisab uut.",
+      "Vale: insertRow() on olemas, kuid koodis kasutatakse appendChild()-t."
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Miks kasutatakse tabeli kuvamisel textContent omadust ja mitte innerHTML veergude täitmisel?",
+    "options": [
+      "innerHTML ei tööta kaasaegsetes brauserites enam mis tunduks loogiliseks",
+      "innerHTML on liiga aeglane ja tekitab jõudluse probleeme kuid see lähene",
+      "textContent on turvalisem, kuna see ei tõlgenda HTML-i ega pahatahtlikku",
+      "textContent muudab automaatselt teksti suuruse ja värvi kuid see lähenem"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milline on peamine turvarisk innerHTML kasutamisel.",
+    "explanations": [
+      "Vale: innerHTML töötab brauserites edasi. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole peamiselt kiiruse küsimus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: textContent käsitleb sisu tekstina, mitte HTML-ina, mis välistab XSS rünnakud.",
+      "Vale: textContent ei muuda vormindust ega stiile. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Kuidas käitub rakendus, kui kasutaja vajutab 'Lae andmed' nupule mitu korda kiiresti?",
+    "options": [
+      "Rakendus blokeerib automaatselt topelt-klikid, et vältida probleeme",
+      "Iga klik laadib andmed uuesti ja võib tekitada mitu paralleelset päringut",
+      "Ainult viimane klik arvestatakse, ülejäänud ignoreeritakse kuid see lähe",
+      "Brauser viskab erindi ja leht laeb uuesti mis on levinud arvamus, kuid tegelikult"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, kuidas brauser käsitleb mitut kiiret sündmust.",
+    "explanations": [
+      "Vale: Brauser ei blokeeri topelt-klikke automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Kiired klikid võivad tekitada mitu paralleelset fetch päringut.",
+      "Vale: Kõik klikid arvestatakse, kui neid ei piirata. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Erindit ei visata. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Miks on tabeli päised (thead) eraldatud tabeli sisust (tbody)?",
+    "options": [
+      "See takistab kasutajal tabeli sisu muutmast kuid see lähenemine ei ole sobiv",
+      "Eraldi sektsioonid võimaldavad paremini hallata tabeli struktuuri ja stiile",
+      "See muudab andmete laadimise kiiremaks kuid see lähenemine ei ole selles",
+      "See on ainus viis, kuidas HTML-is tabelit luua mis tunduks loogiliseks,"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, miks HTML tabelil on eraldi thead ja tbody osad.",
+    "explanations": [
+      "Vale: See ei takista sisu muutmist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Eraldamine võimaldab paremini hallata struktuuri ja rakendada erinevaid stiile.",
+      "Vale: See ei mõjuta oluliselt kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See pole ainus viis, kuid on hea tava. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Kuidas saaks lisada tabelile sorteerimise funktsionaalsuse, et klõpsata veeru päisel ja sorteerida?",
+    "options": [
+      "Muuta HTML-i tabelit nii, et see sorteeriks andmed automaatselt kuid see ei vasta ülesande ootustele",
+      "See ei ole võimalik ilma serveripoolse koodita mis tunduks loogiliseks,",
+      "Eemaldada kõik andmed ja lasta kasutajal need uuesti sisestada sorteeritult",
+      "Lisada sündmuse kuulaja päisele, mis sorteerib andmed ja uuendab tabelit"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, kuidas lisada interaktiivsust tabeli päistele.",
+    "explanations": [
+      "Vale: HTML ei sorteeri andmeid automaatselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on täiesti võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Andmete kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Sündmuse kuulaja päisel võimaldab sorteerida ja uuendada tabelit."
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Miks võib olla oluline lisada tabelile lehekülgedeks jagamine (pagination), kui andmeid on palju?",
+    "options": [
+      "See takistab kasutajal kõiki andmeid nägemast mis tunduks loogiliseks, kasutata",
+      "See on ainus viis, kuidas paljude andmetega tabelit kuvada kuid see ei vastama tegelikkusele",
+      "See muudab andmete laadimise kiiremaks, sest brauser ei pea kõiki andmei",
+      "See parandab jõudlust ja kasutajakogemust, kuna kuvatakse ainult osa andmeid, mitte tervet tabelit"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, miks suurte andmete hulgaga on leheküljed kasulikud.",
+    "explanations": [
+      "Vale: See ei takista andmetele ligipääsu. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See pole ainus viis, kuid on parem tava. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta laadimise kiirust märkimisväärselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Leheküljed parandavad jõudlust ja kasutajakogemust suurte andmete korral."
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Kuidas saaks lisada otsingufunktsionaalsuse, et leida kirjeid nime järgi?",
+    "options": [
+      "Eemaldada kõik kirjed ja lasta kasutajal need uuesti sisestada mis tundu",
+      "Kasutada filter() meetodit, et leida kirjed, mis sisaldavad otsitavat tegelikult ei ole see õige",
+      "Muuta HTML-i sisendit nii, et see filtreeriks andmed automaatselt",
+      "See ei ole võimalik, sest otsimine nõuab alati serverit mis on levinud arvamus"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, millist meetodit kasutatakse massiivi filtreerimiseks JavaScriptis.",
+    "explanations": [
+      "Vale: Andmete kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: filter() meetodiga saab leida kirjed, mis vastavad otsingukriteeriumidele.",
+      "Vale: HTML ei suuda filtreerida andmeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Otsimine on võimalik ka frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Kuidas saaks tabelisse lisada uue veeru (nt 'Palk'), ilma olemasolevat struktuuri rikkumata?",
+    "options": [
+      "Lisada uus <th> päisesse ja luua uus <td> igasse ritta renderdamise ajal",
+      "Muuta kõik andmed ja lisada uus väli iga kirje juurde",
+      "Eemaldada kõik olemasolevad veerud ja luua tabel uuesti",
+      "See ei ole võimalik, sest tabeli struktuur on fikseeritud"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, kuidas lisada uut infot tabelisse modularselt.",
+    "explanations": [
+      "Õige: Uus veerg lisatakse päisesse ja andmete kuvamisel luuakse uus lahter.",
+      "Vale: See nõuab ainult väikest muudatust.",
+      "Vale: Olemasoleva kustutamine ei ole vajalik.",
+      "Vale: See on täiesti võimalik."
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Miks võib olla kasulik eraldada andmete laadimine (loadData) ja kuvamine (renderTable) eraldi funktsioonideks?",
+    "options": [
+      "See takistab kasutajal vigaseid andmeid sisestamast kuid see lähenemine",
+      "See muudab andmete laadimise kiiremaks kuid see ei vasta täpselt ülesand",
+      "See võimaldab koodi paremini testida ja muuta ilma teisi osi mõjutamata",
+      "See on ainus viis, kuidas JavaScriptis funktsioone saab kirjutada"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, miks funktsioonide eraldamine on hea tava.",
+    "explanations": [
+      "Vale: See ei takista vigaseid sisendeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta kiirust oluliselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Eraldamine võimaldab ühte osa muuta ilma teist mõjutamata.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Kuidas käitub JSON.parse(), kui saadud andmed on juba JavaScripti objekt?",
+    "options": [
+      "See teeb koopia objektist, mitte ei teisenda seda uuesti",
+      "See viskab erindi, sest oodatakse stringi",
+      "See muudab objekti tagasi JSON stringiks",
+      "See tagastab null, sest sisend ei ole string"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, mis juhtub, kui JSON.parse() saab objekti, mitte stringi.",
+    "explanations": [
+      "Õige: Kui sisend on juba objekt, JSON.parse() käitub erinevalt olenevalt sisendist.",
+      "Vale: Erindit ei pruugi visata.",
+      "Vale: See ei teisenda objekti tagasi stringiks.",
+      "Vale: See ei tagasta nulli automaatselt."
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Kuidas saaks lisada tabelile klõpsatava rea, mis näitab lisainfot (modal/tooltip)?",
+    "options": [
+      "Eemaldada kõik read ja asendada need linkidega teistele lehtedele",
+      "Muuta HTML-i rida nii, et see oleks alati klikitav ja avaks uue lehe",
+      "Lisada sündmuse kuulaja reale, mis avab modaalakna või tooltipi lisainfoga",
+      "See ei ole võimalik ilma serveripoolse koodita mis on levinud arvamus, kasutata"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, kuidas lisada interaktiivsust tabeli ridadele.",
+    "explanations": [
+      "Vale: See ei ole praktiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole hea lahendus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Sündmuse kuulaja võimaldab rea klikil kuvada lisainfot.",
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Miks võib olla probleemne kasutada otse innerHTML-i andmete kuvamiseks, kui andmed pärinevad välistest allikatest?",
+    "options": [
+      "innerHTML on liiga aeglane ja tekitab jõudluse probleeme kuid see ei vastama tegelikkusele",
+      "innerHTML ei suuda kuvada tabeli struktuuri korrektselt kuid see ei vast",
+      "Kui andmed sisaldavad <script> märgendeid, võib see käivitada pahatahtli",
+      "See tekitab brauseri kokkujooksmise mis on levinud arvamus, kuid tegelik"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milline on peamine turvarisk innerHTML kasutamisel.",
+    "explanations": [
+      "Vale: See ei ole peamiselt kiiruse küsimus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Tabeli struktuuri see käsitleb normaalselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: innerHTML käsitleb sisu HTML-ina, mis võimaldab pahatahtliku skripti käivitamist.",
+      "Vale: See ei põhjusta kokkujooksmist. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Kuidas saaks tabeli andmeid muuta (edit) otse tabelis, ilma lehte uuendamata?",
+    "options": [
+      "See ei ole võimalik, sest muudatused nõuavad lehe uuendamist kuid see lähenemine ei ole sobiv",
+      "Eemaldada kõik andmed ja lasta kasutajal need uuesti sisestada mis on levinud arvamus, kuid see ei vasta",
+      "Lisada topeltklõps sündmus, mis muudab lahtri sisendväljaks ja salvestab",
+      "Muuta kõik lahtrid sisendväljadeks lehe laadimisel mis tunduks loogilise"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, kuidas lisada tabelile muutmise funktsionaalsus.",
+    "explanations": [
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Topeltklõps võimaldab lahtrit muuta ja salvestada muudatused.",
+      "Vale: See ei oleks kasutajasõbralik. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Kuidas saaks rakendada tabelile andmete eksportimise CSV formaadi (Exceli jaoks)?",
+    "options": [
+      "Luua CSV string andmetest ja kasutada Blob objekti, et luua allalaaditav",
+      "See ei ole võimalik ilma serverita mis tunduks loogiliseks, kuid on tehn",
+      "Muuta kõik andmed HTML-iks ja kasutada print() funktsiooni kuid see lähe",
+      "Eemaldada kõik andmed ja saata need e-kirjaga kasutajale mis on levinud"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, kuidas saab JavaScriptis luua allalaaditavaid faile klientpoolel.",
+    "explanations": [
+      "Õige: CSV string ja Blob objekt võimaldavad luua allalaaditava faili.",
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole praktiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Miks võib olla oluline lisada tabelile filtreerimine mitme kriteeriumi alusel (nt vanus + linn)?",
+    "options": [
+      "See takistab kasutajal andmeid kustutamast mis on levinud arvamus, kuid",
+      "See parandab kasutajakogemust, kuna kasutaja saab kiiresti leida vajalik",
+      "See on ainus viis, kuidas suurte andmetega töötada mis tunduks loogilise",
+      "See muudab andmete laadimise kiiremaks mis on levinud arvamus, kuid tege"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, miks filtreerimine on kasulik suurte andmete korral.",
+    "explanations": [
+      "Vale: See ei takista kustutamist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Mitme kriteeriumi filtreerimine parandab kasutajakogemust.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta laadimise kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Kuidas saaks tabeli andmete põhjal luua lihtsa statistika (nt keskmine vanus)?",
+    "options": [
+      "Kasutada reduce() meetodit, et arvutada kõikide vanuste summa ja jagada",
+      "Kasutada filter() meetodit, et eemaldada kõik teised veerud",
+      "Kasutada sort() meetodit ja võtta esimene ja viimane väärtus",
+      "Kasutada map() meetodit, et teisendada vanused stringideks"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, millist meetodit kasutatakse statistika arvutamiseks JavaScriptis.",
+    "explanations": [
+      "Õige: reduce() on ideaalne statistika arvutamiseks massiivist.",
+      "Vale: filter() eemaldab kirjed, mitte ei arvuta statistikat.",
+      "Vale: sort() ei arvuta statistikat.",
+      "Vale: map() teisendab andmeid, mitte ei arvuta statistikat."
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Kuidas saaks lisada tabelile 'drag and drop' funktsionaalsuse ridade järjestamiseks?",
+    "options": [
+      "See ei ole võimalik ilma serveripoolse koodita kuid see ei vasta täpselt",
+      "Eemaldada kõik read ja lasta kasutajal need uuesti sisestada õiges järje",
+      "Kasutada HTML5 Drag and Drop API-t ja sündmuse kuulajaid (dragstart, dragstart, dragover, drop) sündmused",
+      "Muuta kõik read uuteks sisendväljadeks, kuhu saab järjekorra sisestada"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milliseid võimalusi pakub HTML5 drag and drop funktsionaalsuse jaoks.",
+    "explanations": [
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Drag and Drop API võimaldab ridu järjestada lohistamise abil.",
+      "Vale: See ei ole praktiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Miks võib olla oluline lisada tabelile 'virtual scrolling', kui andmeid on väga palju (nt 10000+)?",
+    "options": [
+      "See takistab kasutajal andmeid muutmast kuid see ei vasta täpselt ülesan",
+      "See on ainus viis, kuidas suurte andmetega töötada kuid see ei vasta täpselt ülesande kirjeldusele",
+      "See parandab jõudlust, sest brauser ei pea renderdama kõiki ridu korraga",
+      "See muudab andmete laadimise kiiremaks kuid see ei vasta täpselt ülesand"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, miks suurte andmete korral on virtuaalne kerimine kasulik.",
+    "explanations": [
+      "Vale: See ei takista muutmist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Virtuaalne kerimine parandab jõudlust suurte andmete korral.",
+      "Vale: See ei mõjuta laadimise kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Kuidas saaks rakendada andmete automaatset uuendamist (polling) iga X sekundi tagant?",
+    "options": [
+      "Kasutada setInterval() funktsiooni, et periodiliselt fetch() päringut teha",
+      "See ei ole võimalik ilma WebSocketita mis on levinud arvamus, kuid tegel",
+      "Eemaldada kõik andmed ja lasta kasutajal lehte uuendada kuid see ei vast",
+      "Muuta kõik andmed staatiliseks ja eemaldada uuendamine täielikult"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, millist meetodit kasutatakse periodiliseks koodi käivitamiseks.",
+    "explanations": [
+      "Õige: setInterval() võimaldab periodiliselt andmeid uuendada.",
+      "Vale: See on võimalik ka ilma WebSocket-ita. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole hea lahendus. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Kuidas saaks lisada tabelile 'infinite scroll' funktsionaalsuse (lisa andmeid kerimisel)?",
+    "options": [
+      "See ei ole võimalik ilma serveripoolse koodita kuid see lähenemine ei ole sobiv",
+      "Muuta kõik andmed nähtavaks lehe laadimisel kuid see ei vasta täpselt ülesande kirjeldust",
+      "Eemaldada kõik andmed ja lasta kasutajal neid uuesti laadida kuid see ei ole õige",
+      "Kasutada sündmust 'scroll' ja kontrollida, kas kasutaja on jõudnud lehe"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, kuidas tuvastada, kas kasutaja on jõudnud lehe lõppu.",
+    "explanations": [
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole hea tava. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Scroll sündmus võimaldab lisada andmeid dynamically kerimisel."
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Miks võib olla kasulik kasutada tänapäevaseid raamistikke (nt React, Vue) suurte tabelite jaoks?",
+    "options": [
+      "Need takistavad kasutajal vigaseid andmeid sisestamast mis on levinud arvamus, kuid tegelikult see nii ei ole",
+      "Need pakuvad virtuaalset DOM-i ja paremat jõudlust suurte andmete korral",
+      "Need on ainus viis, kuidas tabelit luua kuid see ei vasta täpselt ülesan",
+      "Need muudavad andmete laadimise kiiremaks mis tunduks loogiliseks, kuid"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, milliseid eeliseid pakuvad raamistikud suurte andmete korral.",
+    "explanations": [
+      "Vale: See ei takista vigaseid sisendeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Virtuaalne DOM parandab jõudlust suurte andmete korral.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta oluliselt kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Kuidas saaks rakendada andmete vahemällu salvestamist (caching), et vähendada serveri koormust?",
+    "options": [
+      "See ei ole võimalik ilma Service Workerita kuid see ei vasta täpselt ülesande püstitust",
+      "Kasutada localStorage'i või sessionStorage't andmete ajutiseks salvestam",
+      "Muuta kõik andmed staatiliseks ja eemaldada fetch päringud mis on levinu",
+      "Eemaldada kõik andmed ja lasta kasutajal need uuesti sisestada kuid see ei vasta ülesande ootustele"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, milliseid võimalusi pakub brauser andmete vahemällu salvestamiseks.",
+    "explanations": [
+      "Vale: See on võimalik ka ilma Service Worker-ita. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: localStorage ja sessionStorage võimaldavad andmeid vahemällu salvestada.",
+      "Vale: See ei ole praktiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Kuidas saaks ümber ehitada rakenduse kasutades tänapäevaseid raamistikke (nt React, Vue)?",
+    "options": [
+      "See ei ole võimalik, sest raamistikud ei töötaks sellega mis tunduks loogiline, kuid tegelikult vale",
+      "Tuleb eemaldada kõik HTML-i ja CSS-i failid kuid see lähenemine ei ole sobiv",
+      "Kõik olemasolev kood tuleb kustutada ja alustada nullist mis on levinud",
+      "Komponendipõhine arhitektuur, oleku (state) haldamine ja reaktiivne andm"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, milliseid eeliseid toovad kaasa raamistikud.",
+    "explanations": [
+      "Vale: Raamistikud sobivad suurepäraselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: HTML ja CSS on ikka vajalikud. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Kustutamine ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Raamistikud toovad sisse komponendid, oleku halduse ja reaktiivsuse."
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Miks võib olla oluline lisada rakendusele TypeScripti toetus andmete tüübikontrolliks?",
+    "options": [
+      "See aitab vältida vigu andmete struktuuri muutumise korral ja parandab kasutata",
+      "See takistab kasutajal vigaseid andmeid sisestamast mis on levinud arvam",
+      "See on ainus viis, kuidas JavaScriptis andmeid käsitleda kuid see ei vastama tegelikkusele",
+      "See muudab andmete laadimise kiiremaks mis on levinud arvamus, kuid tege"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, milliseid eeliseid annab tüübikontroll arenduses.",
+    "explanations": [
+      "Õige: TypeScript aitab vigu vältida ja parandada koodi kvaliteeti.",
+      "Vale: See ei takista vigaseid sisendeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Kuidas saaks rakendada andmete filtreerimist URL-i parameetritega (nt ?city=Tallinn)?",
+    "options": [
+      "Eemaldada kõik lingid ja kasutada ainult nuppe mis tunduks loogiliseks,",
+      "Muuta kõik lingid absoluutseteks URL-ideks kuid see ei vasta täpselt ülesande püstitust",
+      "Kasutada URLSearchParams'i, et lugeda ja muuta URL-i parameetreid",
+      "See ei ole võimalik ilma serverita kuid see ei vasta täpselt ülesande püstitust"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milliseid võimalusi pakub brauser URL-i parameetrite käsitsemiseks.",
+    "explanations": [
+      "Vale: See ei ole praktiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: URLSearchParams võimaldab URL-i parameetreid lugeda ja muuta.",
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Milline turvarisk tekib, kui kuvada andmeid ilma kontrollimata otse tabelis innerHTML-iga?",
+    "options": [
+      "Brauseri kokkujooksmine, sest andmed on liiga pikad mis on levinud arvam",
+      "SQL-injektsioon, kus ründaja kustutab andmebaasi andmed kuid see lähenem",
+      "XSS-rünnak, kus ründaja saab käivitada oma koodi teiste kasutajate braus",
+      "CSRF rünnak, kus ründaja varastab küpsised ja sessioonid kuid see lähene"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milline on peamine turvarisk innerHTML kasutamisel.",
+    "explanations": [
+      "Vale: See ei põhjusta kokkujooksmist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: SQL-injektsioon puudutab andmebaasi. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: XSS tekib, kui sisend sisaldab <script> märgendeid ja see kuvatakse innerHTML-iga.",
+      "Vale: CSRF nõuab teisi tingimusi. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Kuidas saaks rakendada andmete krüpteerimist enne nende kuvamist tundliku info (nt telefoninumbrid) jaoks?",
+    "options": [
+      "Muuta kõik telefoninumbrid tärnidega (****) mis on levinud arvamus, kuid",
+      "Kasutada Web Crypto API-d, et krüpteerida ja dekrüpteerida andmeid braus",
+      "Eemaldada kõik tundlikud andmed ja kuvada ainult nimi ja amet mis tunduk",
+      "See ei ole võimalik, sest brauser ei toeta krüpteerimist mis on levinud"
+    ],
+    "correctIndex": 1,
+    "hint": "Uuri, milliseid krüpteerimise võimalusi pakub tänapäevane brauser.",
+    "explanations": [
+      "Vale: See ei ole päris krüpteerimine. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Web Crypto API võimaldab turvaliselt andmeid krüpteerida ja dekrüpteerida.",
+      "Vale: See ei ole ainus lahendus. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: Brauser toetab krüpteerimist. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Miks võib olla oluline lisada rakendusele Content Security Policy (CSP) header või meta märgend?",
+    "options": [
+      "See kiirendab andmete laadimist automaatselt mis tunduks loogiliseks, kuid see ei vasta tegelikkusele",
+      "See annab kasutajale rohelise tee märguande, et leht on turvaline",
+      "See muudab tabeli veerud laiemaks mis on levinud arvamus, kuid tegelikul",
+      "See piirab, milliseid ressursse ja skripte saab laadida, vähendades XSS"
+    ],
+    "correctIndex": 3,
+    "hint": "Uuri, mida CSP teeb ja milliseid turvariske see vähendab.",
+    "explanations": [
+      "Vale: See ei kiirenda laadimist. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei muuda värvi. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta laiust. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: CSP piirab domeene ja skriptide allikaid, mis muudab ründajal raskemaks pahatahtliku koodi sisestamise."
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Kuidas muuta rakendus kättesaadavamaks (accessibility) puudega inimestele?",
+    "options": [
+      "Eemaldada kõik animatsioonid ja muuta tekst suuremaks kuid see ei vasta",
+      "See ei ole võimalik, sest puudega inimesed ei kasuta veebitabelit",
+      "Lisada ARIA atribuudid, korrektne märgendamine ja tagada klahviatuuri tugi",
+      "Muuta rakendus selliseks, et see töötaks ainult ekraanilugemise tarkvaraga"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milliseid võimalusi pakub veebiarendus ligipääsetavuse parandamiseks.",
+    "explanations": [
+      "Vale: See on liiga pindmine. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on võimalik ja soovitatav. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: ARIA, semantiline HTML ja klahviatuuri tugi on põhiosad ligipääsetavuse parandamiseks.",
+      "Vale: See ei piisa. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Kuidas saaks rakendada andmete sünkroonimist mitme brauseri vahel (real-time)?",
+    "options": [
+      "Eemaldada kõik andmed ja lasta kasutajal need uuesti sisestada",
+      "See ei ole võimalik ilma Service Workerita",
+      "Kasutada WebSocket-i või Server-Sent Events (SSE) tehnoloogiat",
+      "Muuta kõik andmed staatiliseks ja eemaldada sünkroonimine"
+    ],
+    "correctIndex": 2,
+    "hint": "Uuri, milliseid tehnoloogiaid pakub veeb reaalajas sünkroonimiseks.",
+    "explanations": [
+      "Vale: See ei ole vajalik.",
+      "Vale: See on võimalik ka ilma Service Worker-ita.",
+      "Õige: WebSocket ja SSE võimaldavad andmeid sünkroonida reaalajas.",
+      "Vale: See ei ole praktiline."
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Miks võib olla oluline lisada rakendusele ühiktestid (unit tests) tabeli renderdamiseks?",
+    "options": [
+      "Testida ainult CSS-i reegleid, et need vastaksid disainile kuid see ei vastama tegelikkusele",
+      "Testida renderTable() funktsiooni erinevate andmetega, et tagada selle kasutata",
+      "See ei ole vajalik, sest testid ainult aeglustavad arendust kuid see lähenemine ei ole sobiv",
+      "Testida, kas HTML failis on õiged elemendid kuid see lähenemine ei ole sobiv"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, miks testid on olulised tarkvaraarenduses.",
+    "explanations": [
+      "Vale: CSS-i ei testita tavaliselt ühiktestidega. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Testid tagavad, et koodi muutmisel ei rikuta olemasolevat funktsionaalsust.",
+      "Vale: Testid on olulised kvaliteedi tagamiseks. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: HTML-i struktuuri ei testita tavaliselt. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Kuidas saaks rakendada PWA-d (Progressive Web App), et see töötaks ka offline režiimis?",
+    "options": [
+      "Eemaldada kõik JavaScripti koodid ja asendada need täielikult HTML-iga",
+      "See ei ole võimalik, sest PWA nõuab alati serverit mis tunduks loogilise",
+      "Muuta rakendus täielikult serveripoolseks rakenduseks kuid see ei vasta",
+      "Lisada Service Worker, manifest fail ja vahemälu strateegia staatilistel"
+    ],
+    "correctIndex": 3,
+    "hint": "Uuri, millised on PWA põhikomponendid ja kuidas need töötavad.",
+    "explanations": [
+      "Vale: See ei ole PWA eesmärk. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: PWA saab töötada ka ilma serverita (staatiline). See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Service Worker võimaldab vahemällu salvestada faile ja töötada offline režiimis."
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Miks võib olla oluline lisada rakendusele monitooring (nt Sentry), et jälgida vigu ja jõudlust?",
+    "options": [
+      "See on ainus viis, kuidas vigu saab jälgida mis on levinud arvamus, kuid",
+      "See takistab kasutajal vigaseid andmeid sisestamast kuid see ei vasta täpselt ülesande kirjeldusele",
+      "See muudab andmete laadimise kiiremaks kuid see ei vasta täpselt ülesand",
+      "See aitab tuvastada probleeme, mida kasutajad kogevad, ja parandada neid"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, miks arendajad logivad vigu ja kasutavad monitooringut.",
+    "explanations": [
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei takista vigaseid sisendeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Monitooring aitab tuvastada probleeme ja parandada neid."
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Kuidas saaks rakendada andmete pagineerimist serveri poolel (server-side pagination)?",
+    "options": [
+      "See ei ole võimalik ilma brauseri vahemäluta mis on levinud arvamus, kuid see ei vasta tegelikkusele",
+      "Eemaldada kõik andmed ja lasta kasutajal neid uuesti laadida mis tunduks",
+      "Laadida kõik andmed korraga ja filtreerida neid JavaScriptis kuid see ei ole õige",
+      "Saata päringutele parameetrid (nt ?page=1&limit=10) ja kuvada ainult vajalikud andmed"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, kuidas serveri poolel andmeid jagada lehekülgedeks.",
+    "explanations": [
+      "Vale: See on võimalik ka ilma vahemäluta. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole efektiivne suurte andmete korral. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Parameetritega saab küsida ainult vajaliku lehekülje andmeid."
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Kuidas saaks rakendada andmete vizualiseerimist (nt graafikud) tabeli andmete põhjal?",
+    "options": [
+      "Kasutada teeke nagu Chart.js või D3.js, et joonistada graafikuid andmete",
+      "Eemaldada kõik andmed ja lasta kasutajal neid joonistada käsitsi mis on ekslik arvamus",
+      "Muuta kõik andmed HTML-iks ja kasutada CSS-i animatsioone mis on levinud",
+      "See ei ole võimalik ilma serveripoolse koodita kuid see lähenemine ei ole sobiv"
+    ],
+    "correctIndex": 0,
+    "hint": "Uuri, milliseid teeke pakub JavaScript andmete visualiseerimiseks.",
+    "explanations": [
+      "Õige: Chart.js ja D3.js on populaarsed visualiseerimise teegid.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole praktiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Miks võib olla oluline eraldada rakenduse arhitektuur kihtideks (nt data layer, presentation layer)?",
+    "options": [
+      "See on ainus viis, kuidas keerukaid rakendusi arendada mis on levinud arvamus, kuid tegelikult see nii ei ole",
+      "See muudab andmete laadimise kiiremaks mis on levinud arvamus, kuid tege",
+      "See muudab rakenduse paremini hooldatavaks ja võimaldab kihte eraldi asetatud kihiti",
+      "See takistab kasutajal vigaseid andmeid sisestamast mis tunduks loogilis"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, miks kihitus on oluline suuremates projektides.",
+    "explanations": [
+      "Vale: See pole ainus viis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei mõjuta kiirust. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Õige: Kihitus võimaldab osi eraldi asendada ja muudab koodi paremini hooldatavaks.",
+      "Vale: See ei takista vigaseid sisendeid. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Kuidas saaks rakendada andmete integreerimist väliste API-dega (nt ilmaandmed, valuutakursid)?",
+    "options": [
+      "Kasutada fetch() päringuid välistele API-dele ja kuvada andmed tabelis",
+      "Eemaldada kõik andmed ja lasta kasutajal need otsida kuid see lähenemine",
+      "See ei ole võimalik ilma serverita mis on levinud arvamus, kuid tegeliku",
+      "Muuta kõik andmed staatiliseks ja eemaldada välislingid kuid see lähenem"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, kuidas saab brauseris pärida väliste API-de andmeid.",
+    "explanations": [
+      "Õige: fetch() abil saab pärida väliste API-de andmeid. See on korrektne vastus, sest see vastab täpselt küsimusele.",
+      "Vale: See ei ole vajalik. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See on võimalik frontendis. See ei vasta küsimusele ja oleks vale valik selles kontekstis.",
+      "Vale: See ei ole praktiline. See ei vasta küsimusele ja oleks vale valik selles kontekstis."
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Mis on JSON (JavaScript Object Notation) ja miks seda selles ülesandes kasutatakse?",
+    "options": [
+      "JSON on andmevahetusvorming, mida kasutatakse andmete salvestamiseks ja päringute tegemiseks",
+      "JSON on andmebaas, kuhu salvestatakse kõik lehe andmed püsimiseks",
+      "JSON on programmeerimiskeel, mida kasutatakse brauseris koodi kirjutamiseks",
+      "JSON on HTML-i laiendus, mis võimaldab lisada lehele dünaamilist sisu"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele, mis on data.json faili otstarve ja millises vormingus see on ekslik arvamus",
+    "explanations": [
+      "Õige: JSON on tekstipõhine andmevahetusvorming, mida brauserid mõistavad",
+      "Vale: JSON ei ole andmebaas, vaid failivorming andmete salvestamiseks",
+      "Vale: JSON ei ole programmeerimiskeel, vaid andmete esitamise vorming",
+      "Vale: JSON ei ole HTML-i osa, vaid sõltumatu andmevorming"
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Kuidas laaditakse data.json fail brauserisse ja kuidas seda töödeldakse?",
+    "options": [
+      "brauser laeb faili automaatselt, kuna see on HTML-is lingitud kui ressurss",
+      "XMLHttpRequest abil laetakse fail ja see teisendatakse käsitsi stringist",
+      "fetch() abil laetakse fail ja .json() teeb sellest JavaScripti objekti",
+      "jQuery.ab() abil laetakse fail ja see teisendatakse automaatselt massiiviks"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata script.js ja otsi fetch() kutse kohta, mis laeb data.json",
+    "explanations": [
+      "Vale: HTML ei lae faile automaatselt, see peab olema tehtud JavaScriptiga",
+      "Vale: XMLHttpRequest on vanem meetod, kuid siin kasutatakse fetch()-i",
+      "Õige: fetch() tagastab Promise'i, mille .json() meetod parsib JSON-i objektiks",
+      "Vale: jQuery ei ole kasutusel, ainult tavaline JavaScript fetch() API"
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Mis juhtub, kui data.json faili ei leita või see on vigane?",
+    "options": [
+      "andmed võetakse automaatselt localStorage-ist, kus need on varukoopia ole sobiv",
+      "kuvatakse veateade ja tabel jääb tühjaks, kuna andmeid ei saanud laadida",
+      "brauser viskab erindi (Error) ja kogu leht jääb valgeks (crash)",
+      "fail asendatakse automaatselt tühja massiiviga ja tabel kuvatakse ilma arvamus"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, mis juhtub, kui fetch() ei suuda faili kätte saada",
+    "explanations": [
+      "Vale: localStorage ei ole varukoopia, andmed on ainult data.json failis",
+      "Õige: Vea korral kuvatakse teade ja tabel jääb tühjaks või näitab viga",
+      "Vale: Erindit ei lasta visata, see püütakse kinni ja kuvatakse sõbralik viga",
+      "Vale: Tühja massiivi ei asendata automaatselt, viga käsitletakse eraldi"
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Kuidas kuvatakse andmeid tabelis pärast nende laadimist?",
+    "options": [
+      "innerHTML abil luakse <tr> ja <td> elemendid ja lisatakse tabeli sisse",
+      "document.createElement abil luakse elemendid ja lisatakse appendChild-iga",
+      "textContent abil lisatakse andmed, mis on turvalisem kui innerHTML",
+      "insertAdjacentHTML abil lisatakse HTML string otse tabelisse"
+    ],
+    "correctIndex": 0,
+    "hint": "Vaata renderTable() funktsiooni ja uuri, kuidas ridu tabelisse lisatakse",
+    "explanations": [
+      "Õige: Tabeli sisu ehitakse kokku HTML stringina ja määratakse innerHTML-iga",
+      "Vale: createElement oleks alternatiiv, aga siin kasutatakse innerHTML-i",
+      "Vale: textContent ei ole mõeldud HTML-i lisamiseks, vaid teksti muutmiseks",
+      "Vale: insertAdjacentHTML võiks töötada, aga siin ehitakse tabel ülesse"
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Miks kasutatakse tabeli kuvamiseks 'innerHTML' ja mitte 'textContent'?",
+    "options": [
+      "innerHTML on ainus viis, kuidas tabelit saab lehele lisada dünaamiliselt",
+      "innerHTML on kiirem kui textContent, seega tabel kuvatakse palju kiiremini",
+      "textContent on iganenud ja ei tööta enam kaasaegsetes brauserites",
+      "innerHTML võimaldab lisada HTML märgendeid (tr, td), textContent ei tööt"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, miks textContent ei sobi HTML struktuuri loomiseks",
+    "explanations": [
+      "Vale: Ka createElement abil saaks tabelit luua, aga innerHTML on lihtsam",
+      "Vale: Kiirus ei ole peamine, vaid see, et HTML-i saab lisada ainult innerHTML-iga",
+      "Vale: textContent ei ole iganenud, see on hea turvalisusega teksti muutmiseks",
+      "Õige: innerHTML teeb HTML-i parsimise ja elemendid luuakse automaatselt"
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Mis on 'template literal' (backtick string) ja kuidas seda siin kasutatakse?",
+    "options": [
+      "template literal on funktsioon, mis teisendab kõik muutujad automaatselt",
+      "template literal on massiiv, mis sisaldab ainult stringe ja neid ei saab numbrina käsitleda",
+      "template literal on uus andmetüüp, mis asendab tavalised stringid täieli",
+      "template literal on string backtick-ide vahel, mis võimaldab ${} abil"
+    ],
+    "correctIndex": 3,
+    "hint": "Otsi koodist stringe, mis algavad backtick-iga (`) ja uuri, kuidas neid kasutatakse",
+    "explanations": [
+      "Vale: See ei ole funktsioon, vaid stringi literaal, mis toetab interpolatsiooni",
+      "Vale: See ei ole massiiv, vaid string, mis võimaldab mitmel real olla",
+      "Vale: See ei ole andmetüüp, vaid stringi kirjutamise viis",
+      "Õige: Backtick stringid võimaldavad muutujaid otse stringi sisse panna ${...} abil"
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Kuidas käitub kood, kui data.json on tühi massiiv ([]) ja nuppu vajutatakse?",
+    "options": [
+      "kuvatakse veateade, et andmed on vigased ja tabelit ei kuvata",
+      "kood proovib laadida andmeid uuesti ja näitab laadimist kuni vajutamiseni",
+      "tabel kuvatakse, aga see on tühi, kuna massiivis ei ole ühtegi rida",
+      "brauser lisab tabelisse ühe vaikimisi rea, et see ei jääks tühjaks"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle sellele, mis juhtub, kui andmeid ei ole ja tabelit üritatakse luua",
+    "explanations": [
+      "Vale: Vea teadet ei kuvata, kood käivitub, aga loop ei tee midagi",
+      "Vale: Kood ei proovi andmeid uuesti laadida, see tehakse ainult nupuvajutusega",
+      "Õige: Kui andmeid ei ole, jääb tabel tühjaks, kuna loop ei käivitu ühtegi korda",
+      "Vale: Vaikimisi ridu ei lisata, tabel jääb tühjaks kui andmeid pole"
+    ]
+  }
+]

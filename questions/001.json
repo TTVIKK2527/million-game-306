@@ -1,0 +1,920 @@
+[
+  {
+    "level": 1,
+    "question": "Millist meetodit kasutatakse sündmuse sidumiseks 'Arvuta' nupuga?",
+    "options": [
+      "attachEvent('onclick', callback) vanemate brauserite jaoks mõeldud meetod",
+      "addEventListener('click', callback) elemendil id-ga 'calculateBtn'",
+      "setAttribute('onclick', callback) meetodit mille järel funktsioon käivitub",
+      "onclick atribuudi määramist otse HTML koodi sisse kirjutatud elemendile"
+    ],
+    "correctIndex": 1,
+    "hint": "Vaata script.js ja otsi rida kus calculateBtn-le kuulaja lisatakse",
+    "explanations": [
+      "Vale: attachEvent on aegunud ja töötas ainult Internet Explorer-is",
+      "Õige: Koodis kasutatakse calculateBtn.addEventListener('click', ...)",
+      "Vale: setAttribute muudab atribuuti, kuid ei lisa korrektset sündmuse kuulajat",
+      "Vale: HTML-i inline onclick ei ole selles lahenduses kasutusel"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Millist HTML elemendi tüüpi kasutatakse esimese arvu sisestamiseks?",
+    "options": [
+      "input elemendi tüübiga range mille puhul kuvatakse liugur arvu valimiseks",
+      "input elemendi tüübiga number mille puhul aktsepteeritakse ainult arve",
+      "textarea elemendi mille puhul saab sisestada mitu rida teksti korraga",
+      "input elemendi tüübiga text mille id on 'num1' ja mis on HTML-is"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata index.html ja otsi sisendvälja kuhu esimene arv sisestatakse",
+    "explanations": [
+      "Vale: range tüüpi ei kasutata, kuna arv sisestatakse klaviatuuri abil",
+      "Vale: number tüüpi ei kasutata, vaid text tüüpi mida käsitletakse parseFloat-iga",
+      "Vale: textarea ei ole kasutusel, kuna vaja on ainult üherealisi sisendeid",
+      "Õige: Failis index.html on defineeritud <input type=\"text\" id=\"num1\">"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Mis on select elemendi ülesanne selles kalkulaatoris?",
+    "options": [
+      "võimaldada kasutajal valida millist matemaatilist tehet soovitakse teha",
+      "kontrollida kas sisestatud väärtused on korrektsed enne arvutamist",
+      "kuvada tulemust kasutajale pärast arvutamise lõpetamist otse lehel",
+      "salvestada kõik tehtud arvutused brauseri mällu hilisemaks vaatamiseks"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle sellele millist valikut pakub rippmenüü ja kuidas JavaScript seda väärtust kasutab",
+    "explanations": [
+      "Õige: See element võimaldab valida tehe tüübi mida kasutatakse calculate() funktsioonis",
+      "Vale: Valideerimine toimub JavaScripti poolel parseFloat() ja isNaN kontrolliga",
+      "Vale: Tulemuse kuvamiseks on eraldi element <div id=\"result\">",
+      "Vale: Salvestamine ei toimu, kalkulaator on mõeldud ainult hetkeliseks arvutamiseks"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Millal kuvatakse veateade 'Palun sisesta mõlemad arvud korrektselt!'?",
+    "options": [
+      "siis kui mõlemad sisendid on tühjad ja kasutatakse vaikeväärtusi 0 ja 1",
+      "siis kui parseFloat() tagastab vähemalt ühe sisendi korral NaN väärtuse",
+      "siis kui kasutaja sisestab negatiivse arvu, mis on selles kalkulaatoris vigane",
+      "alati kui kasutaja vajutab nupule, sõltumata sellest, mis on sisendites"
+    ],
+    "correctIndex": 1,
+    "hint": "Vaata script.js ja otsi kohta, kus kontrollitakse if (isNaN(num1) || isNaN(num2))",
+    "explanations": [
+      "Vale: Tühjad sisendid annavad NaN, aga vaikeväärtuseid ei kasutata",
+      "Õige: Kui mõni sisend ei teisendu korrektselt arvuks, näidatakse seda viga",
+      "Vale: Negatiivsed arvud on lubatud, kalkulaator ei piira arvu märki",
+      "Vale: Viga kuvatakse ainult siis, kui sisendid ei ole korrektsed arvud"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Kus täpselt kuvatakse arvutuse tulemus pärast calculate() käivitamist?",
+    "options": [
+      "innerHTML abil lisatakse tulemus uue div elemendina lehe lõppu",
+      "resultDisplay.textContent väärtustatakse tulemusega ja kuvatakse lehel",
+      "console.log() abil kuvatakse tulemus ainult arendajakonsoolis (F12)",
+      "alert() abil kuvatakse hüpikaken, kus on tulemus kirjas"
+    ],
+    "correctIndex": 1,
+    "hint": "Otsi script.js failis rida, kus määratakse resultDisplay.textContent = result;",
+    "explanations": [
+      "Vale: innerHTML ei ole turvaline ja seda ei kasutata tulemuse kuvamiseks",
+      "Õige: Tulemus määratakse resultDisplay elemendi textContent omadusena",
+      "Vale: console.log ei kuva tulemust lehel, vaid ainult arendajakonsoolis",
+      "Vale: alert() ei ole kasutusel, tulemus kuvatakse otse lehel olevas elemendis"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Mis on 'operator' muutuja otstarve calculate() funktsioonis?",
+    "options": [
+      "see loeb sisendi väärtuse ja teisendab seda täisarvuks kohe",
+      "see salvestab esimese sisestatud arvu väärtuse enne tehte tegemist",
+      "see salvestab valitud tehte tüübi (+, -, *, /) select elemendist",
+      "see kontrollib, kas kasutaja on sisestanud mõlemad arvud korrektselt"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata calculate() funktsiooni algust ja otsi, kust 'operator' väärtus tuleb",
+    "explanations": [
+      "Vale: Täisarvuks teisendamine on parseInt(), mitte operator muutuja ülesanne",
+      "Vale: Esimese arvu väärtus on num1 muutuja, mitte operator",
+      "Õige: operator väärtus tuleb select elemendist ja määrab, millist tehet tehakse",
+      "Vale: Sisendite kontroll toimub eraldi if (isNaN(...)) kontrolliga"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Milline on 'Arvuta' nupu eesmärk kalkulaatori töös?",
+    "options": [
+      "see salvestab praeguse tulemuse brauseri localStorage-sse püsimiseks",
+      "see käivitab calculate() funktsiooni, mis teeb arvutuse ja kuvab tulemuse",
+      "see tühjendab kõik sisendväljad ja teeb ettevalmistuse uueks arvutuseks",
+      "see kuvab täiendavaid valikuid, kuidas arvutust jätkata saab"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle sellele, mis juhtub, kui vajutad 'Arvuta' nupule - vaata HTML-i ja JavaScripti",
+    "explanations": [
+      "Vale: localStorage ei ole kasutusel, kalkulaator on mõeldud ilma salvestamiseta",
+      "Õige: Nupuvajutus käivitab calculate() funktsiooni, mis arvutab ja kuvab tulemuse",
+      "Vale: Nupp ei tühjenda sisendeid, need jäävad alles pärast arvutamist",
+      "Vale: Lisavalikuid ei kuvata, nupp on ainult arvutamise käivitamiseks"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Mis juhtub, kui vajutad 'Arvuta' nuppu ilma midagi sisestamata?",
+    "options": [
+      "arvutus tehakse vaikeväärtustega 0 ja 1, ja tulemuseks on 0",
+      "brauser viskab veateate ja kalkulaator jääb ootele ilma tulemuseta",
+      "sisendväljad muutuvad punaseks ja nupp muutub kättesaamatuks (disabled)",
+      "kuvatakse veateade, kuna parseFloat() tagastab tühja sisendi korral NaN"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, mida tagastab parseFloat('') ja kuidas seda kontrollitakse",
+    "explanations": [
+      "Vale: Vaikeväärtuseid ei kasutata, tühja sisendiga kuvatakse viga",
+      "Vale: Erindit ei visata, kontrollitakse isNaN() abil ja kuvatakse sõbralik viga",
+      "Vale: Sisendeid ei muudeta punaseks ja nupp jääb aktiivseks",
+      "Õige: Tühi sisend annab parseFloat() korral NaN, mis tuvastatakse veana"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Millist CSS-i omadust kasutatakse tulemuse kuvamiseks pärast arvutamist?",
+    "options": [
+      "resultDisplay.textContent omadust, mis määrab elemendi tekstisisu",
+      "resultDisplay.outerHTML omadust, mis määrab elemendi enda HTML-i",
+      "resultDisplay.value omadust, mis määrab sisendvälja väärtuse",
+      "resultDisplay.innerHTML omadust, mis määrab elemendi HTML-sisu"
+    ],
+    "correctIndex": 0,
+    "hint": "Vaata script.js faili ja otsi rida, kus tulemus määratakse resultDisplay muutujale",
+    "explanations": [
+      "Õige: resultDisplay.textContent = result on õige viis tulemuse kuvamiseks",
+      "Vale: outerHTML asendaks kogu elemendi, mitte ainult selle tekstisisu",
+      "Vale: value on sisendväljade atribuut, mitte tavalise div elemendi oma",
+      "Vale: innerHTML võimaldaks HTML-i süstimist ja on vähem turvaline"
+    ]
+  },
+  {
+    "level": 1,
+    "question": "Kuidas on paigutatud kalkulaatori elemendid HTML-is?",
+    "options": [
+      "ruudustikus: elemendid on paigutatud tabeli laadselt ridadesse",
+      "kolmes veerus: iga element on eraldi veerus horisontaalselt",
+      "kahes tulbas: sisendid vasakul ja tulemus koos nupuga paremal",
+      "ühes tulbas: sisendid üleval, nupp keskel ja tulemus all"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata index.html faili ja märka, kuidas elemendid üksteise suhtes paiknevad",
+    "explanations": [
+      "Vale: Tabeli laadset paigutust ei kasutata, kuigi flex loob rea sisenditele",
+      "Vale: Kolme veeru paigutus pole kasutusel, kuigi select on sisendite kõrval",
+      "Vale: Kahe tulba paigutust ei kasutata, kalkulaator on ühe veeru lahendus",
+      "Õige: Elemendid asetsevad vertikaalselt: sisendid, nupp, tulemus"
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Millist CSS omadust kasutatakse sisendväljade kõrvuti paigutamiseks?",
+    "options": [
+      "display: grid koos grid-template-columns: 1fr 1fr 1fr reeglis",
+      "display: flex koos gap: 10px-ga inputs klassi all .inputs reeglis",
+      "position: absolute koos left ja top väärtustega igale elemendile",
+      "float: left iga sisendvälja jaoks eraldi CSS reeglina"
+    ],
+    "correctIndex": 1,
+    "hint": "Vaata style.css faili ja otsi reeglit .inputs mis määrab paigutuse",
+    "explanations": [
+      "Vale: Grid paigutust ei kasutata, flex on lihtsam valik kolme elemendi jaoks",
+      "Õige: .inputs kasutab display: flex ja gap: 10px horisontaalseks paigutuseks",
+      "Vale: Absolute positsioneerimine eemaldaks elemendid normaalsest voost",
+      "Vale: Float on vanem meetod ega ole siin kasutusel, flex on kaasaegsem"
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Miks on select elemendile antud max-width: 60px?",
+    "options": [
+      "et tagada kõikide valikute (+, -, *, /) ühesugune kuvamine, olenemata",
+      "et muuta select element väiksemaks kui sisendväljad disaini huvides",
+      "et vältida select elemendi venimist kui sisendväljad on väga suured",
+      "et piirata tehtevaliku laiust, sest see vajab vähem ruumi kui arvuväljad"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle sellele, kui palju ruumi on vaja tehtevaliku kuvamiseks",
+    "explanations": [
+      "Vale: Ühesugune kuvamine on oluline, kuid põhjus on ruumi säästmine",
+      "Vale: Disaini eesmärk on funktsionaalsus, mitte tahtlik väiksemaks tegemine",
+      "Vale: Venimise vältimine on osaliselt õige, kuid põhjus on tehtevaliku väiksus",
+      "Õige: Tehtevalik (+, -, *, /) on kitsas, seega 60px on piisav ja säästab ruumi"
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Kuidas muudetakse kalkulaatori nupu värvi, kui hiir selle kohal liigub?",
+    "options": [
+      "#calculate-btn:hover reegliga mis muudab background väärtuseks #45a049",
+      "HTML-i onmouseover atribuudiga mis käivitab värvi muutmise",
+      "CSS klassi .active lisamisega kui hiir on nupu kohal",
+      "JavaScripti mouseenter sündmusega mis muudab värvi dünaamiliselt"
+    ],
+    "correctIndex": 0,
+    "hint": "Vaata style.css ja otsi reeglit, mis käivitub hiirega nupu kohale minnes",
+    "explanations": [
+      "Õige: Pseudo-klass :hover muudab nupu taustavärvi tumedamaks",
+      "Vale: Inline HTML atribuute nagu onmouseover ei kasutata selles lahenduses",
+      "Vale: CSS pseudo-klass :hover on puhtam lahendus kui klasside lisamine",
+      "Vale: JavaScripti ei kasutata hover-efekti jaoks, piisab CSS-ist"
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Mis juhtub kui kasutaja proovib jagada nulliga?",
+    "options": [
+      "kuvatakse veateade 'Palun sisesta mõlemad arvud korrektselt!'",
+      "JavaScript tagastab Infinity ja kuvab selle tulemusena ilma veateateta",
+      "kuvatakse veateade 'Jagamine nulliga ei ole lubatud!' ja tulemus on 'Viga'",
+      "brauser blokeerib tehte automaatselt ja näitab oma veateadet"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata script.js faili ja otsi eraldi kontrolli jagamise jaoks",
+    "explanations": [
+      "Vale: See veateade on mõeldud valede sisendite jaoks, mitte nulliga jagamiseks",
+      "Vale: Kuigi JavaScript tagastaks Infinity, on siin eraldi kontroll ja veateade",
+      "Õige: Enne arvutamist kontrollitakse if (operator === '/' && num2 === 0)",
+      "Vale: Brauser ei sekku, veakäsitlus on JavaScript-i enda poolt kirjutatud"
+    ]
+  },
+  {
+    "level": 2,
+    "question": "Mille jaoks kasutatakse CSS-is * selektorit?",
+    "options": [
+      "see rakendab box-sizing: border-box kõigile lehe elementidele",
+      "see lisab kalkulaatori kõikidele alam-elementidele veeriseid",
+      "see valib kõik elemendid, millel on määratud mingi klass",
+      "see tühjendab kõikide elementide vaikimisi stiilid brauseris"
+    ],
+    "correctIndex": 0,
+    "hint": "Vaata style.css esimest reeglit ja mõtle, mida * selektor tähendab",
+    "explanations": [
+      "Õige: * on universaalne selektor ja box-sizing määrab karbi mudeli",
+      "Vale: * ei lisa veeriseid, vaid rakendab box-sizing kõigile elementidele",
+      "Vale: * valib tõesti kõik elemendid, kuid mitte ainult klassiga elemente",
+      "Vale: Vaikimisi stiilide tühjendamiseks kasutatakse CSS reset-it, mis on erinev"
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Mida tagastab parseFloat() kui argument on tühi sõne ('')?",
+    "options": [
+      "parseFloat('') tagastab null, sest tühi sisend on sama mis null",
+      "parseFloat('') tagastab NaN (Not a Number) väärtuse",
+      "parseFloat('') tagastab undefined, kuna teisendamine ebaõnnestub",
+      "parseFloat('') tagastab 0, sest tühja sõne loetakse nulliks"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle, kuidas JavaScript käitub tühja sõne teisendamisel arvuks",
+    "explanations": [
+      "Vale: null on eraldi väärtus, parseFloat ei tagasta seda kunagi",
+      "Õige: parseFloat('') tagastab NaN, sest tühjas sõnes pole ühtegi arvu",
+      "Vale: undefined-i tagastab funktsioon ilma return lauseta",
+      "Vale: 0 tagastatakse ainult siis, kui sõne on '0' või '0.0'"
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Miks kasutatakse script.js failis DOMContentLoaded sündmust?",
+    "options": [
+      "et tagada, et HTML on täielikult laetud enne JavaScripti käivitamist",
+      "et vähendada lehe laadimisaega, käivitades skripti hiljem",
+      "et eraldada JavaScripti loogika kaheks erinevaks laadimise etapiks",
+      "et takistada skripti tööd kui HTML sisu pole veel valmis"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, mis juhtuks kui skript püüaks leida elemente mida pole veel loodud",
+    "explanations": [
+      "Õige: DOMContentLoaded tagab, et kõik DOM elemendid on lehel olemas",
+      "Vale: Lehe laadimisaeg ei vähene, skript ootab DOM-i valmimist",
+      "Vale: Skripti loogika ei jagune, see kõik käivitub pärast DOM-i valmimist",
+      "Vale: Skripti tööd ei takistata, vaid see ootab DOM-i valmimist"
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Mida teeb rida errorDisplay.classList.remove('show')?",
+    "options": [
+      "eemaldab show CSS klassi, peites eelmise veateate enne uut arvutust",
+      "eemaldab errorDisplay elemendi lehelt, kui see on nähtav",
+      "lisab show klassi errorDisplay elemendile, muutes selle nähtavaks",
+      "eemaldab kõik klassid errorDisplay elemendilt täielikult"
+    ],
+    "correctIndex": 0,
+    "hint": "Otsi script.js failist rida, kus eemaldatakse show klass enne arvutamist",
+    "explanations": [
+      "Õige: Enne uut arvutust peidetakse eelmine veateade show klassi eemaldamisega",
+      "Vale: classList.remove ei eemalda elementi, vaid ainult CSS klassi",
+      "Vale: show klassi eemaldatakse, mitte ei lisata - see peidab veateate",
+      "Vale: Eemaldatakse ainult 'show' klass, mitte kõik klassid"
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Mis juhtub, kui calculate() funktsioonile antakse tundmatu operaator?",
+    "options": [
+      "JavaScript ignoreerib tehet ja tagastab undefined",
+      "funktsioon küsib kasutajalt uuesti operaatori sisestamist",
+      "funktsioon viskab vea, sest switch ei leia sobivat case'i",
+      "switch jõuab default haruni ja tagastab 0, sest see on ette nähtud"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata calculate() funktsioonis olevat switch-lauset ja otsi default haru",
+    "explanations": [
+      "Vale: Switch-il on default haru, mis tagastab 0, mitte undefined",
+      "Vale: Funktsioon ei suhtle kasutajaga, see lihtsalt tagastab tulemuse",
+      "Vale: switch ei viska viga isegi kui ükski case ei vasta - default käsitleb seda",
+      "Õige: default haru tagastab 0, mis on ohutu vaikeväärtus tundmatu operaatori korral"
+    ]
+  },
+  {
+    "level": 3,
+    "question": "Milliseid muutujaid kasutatakse HTML elementidele viitamiseks?",
+    "options": [
+      "var muutujaid mis on loodud HTML-i id atribuutide põhjal",
+      "let muutujaid mis on määratud globaalselt väljaspool funktsiooni",
+      "muutujaid mis on loodud querySelectorAll meetodi abil",
+      "const muutujaid nagu num1Input, calculateBtn jne getElementById-ga"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata script.js algust ja märka, kuidas DOM elementidele viidatakse",
+    "explanations": [
+      "Vale: Vanad brauserid lõid globaalsed muutujad id-de põhjal, aga seda ei kasutata",
+      "Vale: let on küll kasutusel mõnes kohas, kuid siin kasutatakse const",
+      "Vale: querySelectorAll-i ei kasutata, kõik elemendid leitakse getElementById-ga",
+      "Õige: Kõik DOM elemendid salvestatakse const muutujatesse getElementById abil"
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Miks on veateate kuvamiseks loodud eraldi showError funktsioon?",
+    "options": [
+      "et piirata veateadete pikkust ainult 100 tähemärgini",
+      "et võimaldada veateate logimist konsooli iga kord kui see kuvatakse",
+      "et muuta kood aeglasemaks, sest funktsiooni kutsumine võtab kauem aega",
+      "et vältida koodi dubleerimist, sest veateadet näidatakse mitmes kohas"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle, mitu korda veateadet kuvatakse ja kuidas funktsioon seda lihtsustab",
+    "explanations": [
+      "Vale: Funktsioon ei piira sõnumi pikkust, selle eesmärk on taaskasutus",
+      "Vale: showError ei logi konsooli, see ainult kuvab veateate lehel",
+      "Vale: Funktsioonid muudavad koodi loetavamaks, mitte aeglasemaks",
+      "Õige: showError haldab veateate kuvamist mõlemal juhul - NaN ja nulliga jagamine"
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Miks kasutatakse kalkulaatoris input type='text' input type='number' asemel?",
+    "options": [
+      "et hiljem parseFloat() abil teisendamine annab rohkem kontrolli sisendi üle",
+      "sest type='text' on kiirem ja kasutab vähem brauseri mälu",
+      "sest type='number' ei tööta üldse JavaScripti kalkulaatorite jaoks",
+      "sest type='number' lubab ainult täisarve ega aktsepteeri komakohti"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, kuidas type='number' võib piirata kasutaja sisestatavaid väärtuseid",
+    "explanations": [
+      "Õige: ParseFloat annab kontrolli teisenduse üle ja võimaldab kohandatud veakäsitlust",
+      "Vale: Erinevus kiiruses on minimaalne ja pole põhjendus valikuks",
+      "Vale: Type='number' töötab hästi, kuid piirab kontrolli vigade käsitlemisel",
+      "Vale: Type='number' lubab komakohti, kuid brauseri veakäsitlus on erinev"
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Kuidas hoiab errorDisplay tekst eelmisest veatest puhtana?",
+    "options": [
+      "errorDisplay.value = '' määratakse iga kord enne nupuvajutust",
+      "errorDisplay tühjendatakse automaatselt iga DOMContentLoaded korral",
+      "errorDisplay.innerHTML = '' määratakse pärast arvutuse tegemist",
+      "errorDisplay.textContent = '' määratakse enne uue vea kontrollimist"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata script.js algust calculateBtn.addEventListener sees",
+    "explanations": [
+      "Vale: value on sisendväljade omadus, errorDisplay on div element",
+      "Vale: Tühjendamine toimub iga nupuvajutusega, mitte automaatselt",
+      "Vale: innerHTML-i ei kasutata, textContent on piisav ja turvalisem",
+      "Õige: Enne uut arvutust määratakse textContent tühjaks ja eemaldatakse show klass"
+    ]
+  },
+  {
+    "level": 4,
+    "question": "Mis on const ja let erinevus JavaScriptis?",
+    "options": [
+      "const on aegunud ja seda ei tohiks kasutada, let on kaasaegsem",
+      "const lubab väärtuse muutmist, let ei luba ümberdefineerimist",
+      "let töötab ainult funktsiooni sees, const töötab globaalselt",
+      "const ei luba muutuja ümberdefineerimist, let lubab väärtuse muutmist"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle, miks DOM elementide jaoks kasutatakse const, aga mõned väärtused võiks olla let",
+    "explanations": [
+      "Vale: const pole aegunud, see on tänapäeva JavaScripti standard",
+      "Vale: const ei luba muutuja väärtuse muutmist (aga objekti omadusi saab muuta)",
+      "Vale: Mõlemad on plokiskoopilised, mitte ainult funktsiooniskoopilised",
+      "Õige: const deklareerib muutuja mida ei saa ümber määrata, let lubab seda"
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Mida teeb rida errorDisplay.classList.add('show')?",
+    "options": [
+      "muudab errorDisplay sisu ja lisab samaaegselt animatsiooni",
+      "lisab uue HTML elemendi errorDisplay sisse show nimega",
+      "eemaldab show CSS klassi, mis peidab veateate (display: none)",
+      "lisab show CSS klassi, mis muudab veateate nähtavaks (display: block)"
+    ],
+    "correctIndex": 3,
+    "hint": "Vaata style.css ja otsi reeglit .error.show ja mõtle mida see teeb",
+    "explanations": [
+      "Vale: classList.add lisab ainult CSS klassi, see ei muuda sisu",
+      "Vale: classList.add lisab CSS klassi, mitte HTML elementi",
+      "Vale: classList.add lisab klassi, mitte ei eemalda seda",
+      "Õige: .error.show reeglis on display: block, mis teeb veateate nähtavaks"
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Millist tüüpi on calculate funktsiooni parameetrid a, b ja op?",
+    "options": [
+      "a ja b on sõned (string), op on arv (number) mida võrreldakse switch-is",
+      "a, b ja op on kõik sõned (string), sest need tulevad HTML elemendist",
+      "a ja b on arvud (number), op on sõne (string) mis tuleb select elemendist",
+      "a ja b on täisarvud (integer), op on tõeväärtus (boolean) tehte jaoks"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle, mida tagastab parseFloat() ja millist tüüpi on select väärtus",
+    "explanations": [
+      "Vale: parseFloat tagastab number, mitte string tüüpi väärtuse",
+      "Vale: parseFloat teisendab sisendi numberiks, seega a ja b on arvud",
+      "Õige: parseFloat tagastab number tüüpi, select.value on alati string",
+      "Vale: parseFloat tagastab ujukomaarvu, mitte tingimata täisarvu"
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Kuidas on lahendatud veateadete eristamine (tühi sisend vs nulliga jagamine)?",
+    "options": [
+      "switch-lausega mis valib veateate vastavalt operaatori ja sisendite tüübile",
+      "try-catch plokiga mis püüab kinni kõik vead arvutamise ajal",
+      "kahe eraldi if-lausega: esimene kontrollib NaN, teine kontrollib nulliga jagamist",
+      "ühe if-lausega mis kontrollib kõik vead korraga ja kuvab ühe üldise veateate"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata script.js ja märka, kuidas vead on jaotatud kaheks erinevaks kontrolliks",
+    "explanations": [
+      "Vale: switch-lauset kasutatakse ainult arvutamiseks, mitte vigade jaoks",
+      "Vale: try-catch pole kasutusel, kood kasutab lihtsaid if tingimusi",
+      "Õige: Kaks if-lauset: esimene isNaN kontroll, teine jagamise kontroll",
+      "Vale: Ühe üldise veateatega ei saaks eristada erinevaid veaolukordi"
+    ]
+  },
+  {
+    "level": 5,
+    "question": "Miks kustutatakse veateade (show klassi eemaldamine) enne iga arvutust?",
+    "options": [
+      "et eelmine veateade ei jääks nähtavale kui uus arvutus õnnestub",
+      "et kasutaja näeks veateadet ainult ühe sekundi jooksul",
+      "et vabastada mälu, sest veateated kogunevad muidu mällu",
+      "et anda kasutajale teada, et kalkulaator teeb uue arvutuse"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, mis juhtuks kui esimesel korral oli viga ja teisel korral on kõik korras",
+    "explanations": [
+      "Õige: Ilma eemaldamiseta jääks vana veateade nähtavale isegi õnnestunud arvutuse korral",
+      "Vale: Veateade jääb nähtavale kuni järgmise nupuvajutuseni, mitte ei kao automaatselt",
+      "Vale: Teksti säilitamine ei tekita mäluprobleeme, see on puhtalt visuaalne",
+      "Vale: Teade ei anna teada uuest arvutusest, see lihtsalt puhastab eelmise vea"
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Miks on calculate funktsioon eraldatud eraldi funktsiooniks?",
+    "options": [
+      "et arvutust saaks korduvalt kasutada ilma seda ümber kirjutamata",
+      "et võimaldada teistel skriptidel calculate funktsioonile ligi pääseda",
+      "et muuta koodi raskemini loetavaks arendajatele, kes seda ei tunne",
+      "et eraldada arvutusloogika kasutajaliidese loogikast puhtama koodi jaoks"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle, milline on hea tava funktsioonide eraldamisel ja koodi organiseerimisel",
+    "explanations": [
+      "Vale: Kuigi see on tõsi, on põhieesmärk loogika eraldamine liidesest",
+      "Vale: calculate on lokaalne funktsioon ega ole teistele skriptidele ligipääsetav",
+      "Vale: Vastupidi - eraldamine muudab koodi loetavamaks ja hooldatavamaks",
+      "Õige: Funktsioonide eraldamine järgib 'separate concerns' põhimõtet"
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Mis juhtuks kui calculate funktsioonis poleks default haru?",
+    "options": [
+      "tundmatu operaatori korral tagastaks funktsioon undefined",
+      "brauser kuvaks veateate ja peataks skripti töö",
+      "funktsioon kasutaks eelmise arvutuse tulemust uuesti",
+      "funktsioon viskaks vea, sest switch vajab alati default haru"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, mida tagastab funktsioon kui ükski return lause ei käivitu",
+    "explanations": [
+      "Õige: Ilma default haruta ja kui ükski case ei sobi, pole return-lauset mis käivituks",
+      "Vale: Brauser ei seku, funktsioon lihtsalt tagastab undefined",
+      "Vale: Funktsioon ei mäleta eelmist väljakutset, iga kutse on iseseisev",
+      "Vale: Switch ei nõua default haru, see on vabatahtlik"
+    ]
+  },
+  {
+    "level": 6,
+    "question": "Miks on oluline, et num1 ja num2 muutujad on const abil deklareeritud?",
+    "options": [
+      "sest const muutujad on globaalsed ja ligipääsetavad kõikjal koodis",
+      "sest nende väärtus ei muutu kogu funktsiooni jooksul ja const on turvalisem",
+      "sest const muutujad on kiiremad kui let või var muutujad",
+      "sest const võimaldab muutujate deklareerimist ilma väärtuseta"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle, kas num1 ja num2 väärtus muutub pärast nende määramist",
+    "explanations": [
+      "Vale: Const on plokiskoopiline, mitte globaalne",
+      "Õige: const tagab, et muutujat ei saa kogemata üle kirjutada",
+      "Vale: Jõudluse erinevus const ja let vahel on olematu",
+      "Vale: Const nõuab algväärtust, erinevalt let-st"
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Kuidas on lahendatud veateate automaatne peitmine kui arvutus õnnestub?",
+    "options": [
+      "iga kord nupule vajutades eemaldatakse show klass ja tühjendatakse tekst",
+      "veateade peidetakse ainult siis kui kasutaja klõpsab veateatele",
+      "veateade kaob automaatselt 3 sekundi pärast setTimeout() abil",
+      "veateadet ei peidetagi, see jääb alles kuni lehe uuesti laadimiseni"
+    ],
+    "correctIndex": 0,
+    "hint": "Vaata script.js calculateBtn klikihaldurit ja märka, mis toimub enne arvutamist",
+    "explanations": [
+      "Õige: Iga nupuvajutus eemaldab show klassi ja tühjendab tekstisisu",
+      "Vale: Klõpsamine veateatel ei tee midagi, peitmine toimub Arvuta nupuga",
+      "Vale: setTimeout ei ole kasutusel, peitmine toimub kohe uue nupuvajutusega",
+      "Vale: Veateade peidetakse iga kord enne uut arvutust"
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Mis oleks probleem, kui tulemuse kuvamiseks kasutada innerHTML-i textContent asemel?",
+    "options": [
+      "innerHTML ei tööta Firefoxis korrektselt",
+      "innerHTML ei kuva numbreid, ainult teksti",
+      "innerHTML võimaldab JavaScripti ja HTML-i süstimist (XSS oht)",
+      "innerHTML on liiga aeglane ja teeb lehe aeglaseks"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle turvalisusele - kas kasutaja saab sisestada midagi, mis võiks olla ohtlik",
+    "explanations": [
+      "Vale: innerHTML töötab kõikides brauserites, kuid on turvarisk",
+      "Vale: innerHTML kuvab kõike, ka numbreid, kuid see ei ole oluline põhjus",
+      "Õige: innerHTML võimaldab HTML süstimist, textContent on turvalisem",
+      "Vale: innerHTML võib olla veidi aeglasem, kuid mitte märgatavalt"
+    ]
+  },
+  {
+    "level": 7,
+    "question": "Kuidas on CSS-is lahendatud kalkulaatori horisontaalne tsentreerimine?",
+    "options": [
+      "body-l on display: flex, justify-content: center, align-items: center ja min-height",
+      "kalkulaatori div-il on margin: 0 auto ja width: 350px mis tsentreerib selle",
+      "kalkulaatori div-il on position: absolute ja left: 50% koos transform: translateX",
+      "body-l on text-align: center ja kalkulaator on display: inline-block"
+    ],
+    "correctIndex": 0,
+    "hint": "Vaata style.css body reeglit ja märka, kuidas elemendid tsentreeritakse",
+    "explanations": [
+      "Õige: Flexbox body-l tsentreerib kalkulaatori nii horisontaalselt kui vertikaalselt",
+      "Vale: margin: 0 auto tsentreeriks horisontaalselt, kuid siin on kasutusel flex",
+      "Vale: Absolute positsioneerimine vajaks teadaolevat kõrgust ega ole kasutusel",
+      "Vale: text-align ei tsentreeri plokk-elemendid, flex on kasutusel"
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Mida teeb operaator '&&' tingimuses if (operator === '/' && num2 === 0)?",
+    "options": [
+      "kontrollib, et vähemalt üks tingimus on tõene (VÕI tehe)",
+      "kontrollib, et mõlemad tingimused on tõesed: tehe on jagamine JA num2 on 0",
+      "võrdleb kahte väärtust ja tagastab nende summa",
+      "määrab muutujatele uued väärtused kui mõlemad tingimused on tõesed"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle loogikatehetele - mida tähendab && JavaScriptis",
+    "explanations": [
+      "Vale: VÕI tehe on ||, mitte &&",
+      "Õige: && on loogiline JA - mõlemad tingimused peavad olema tõesed",
+      "Vale: && ei summeeri väärtuseid, see on loogiline operaator",
+      "Vale: && ei muuda muutujate väärtuseid, see ainult kontrollib tingimust"
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Miks on showError funktsioonis kaks rida: textContent määramine ja classList.add?",
+    "options": [
+      "sest üks rida on varukoopia juhuks kui teine ebaõnnestub",
+      "sest classList.add määrab automaatselt ka teksti sisu",
+      "sest veateade vajab nii teksti sisu kui ka nähtavaks muutmist CSS klassi abil",
+      "sest textContent määramine kustutab automaatselt show klassi"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata showError funktsiooni ja mõtle, mida iga rida teeb",
+    "explanations": [
+      "Vale: Mõlemad read on vajalikud ja täidavad erinevat eesmärki",
+      "Vale: classList.add ei muuda teksti sisu",
+      "Õige: Tekst määratakse textContent-ga ja nähtavus add('show') kaudu",
+      "Vale: textContent ja klassid on sõltumatud omadused"
+    ]
+  },
+  {
+    "level": 8,
+    "question": "Milline on JavaScripti switch-lause eelis mitme if-else if võrreldes?",
+    "options": [
+      "switch võimald tsüklitest väljumist, mida if-else if ei võimalda",
+      "switch luba kasutada stringide võrdlemist, mida if-else if ei võimalda",
+      "switch on alati kiirem kui if-else if, sõltumata võimaluste arvust",
+      "switch on loetavam kui mitu if-else if haru, eriti paljude võimaluste korral"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle, kumb on lihtsam lugeda, kui on 4 või rohkem erinevat võimalust",
+    "explanations": [
+      "Vale: Switch-is kasutatakse break, mitte ei väljuta tsüklist",
+      "Vale: if-else if saab ka stringe võrrelda, see pole switch-i eksklusiivne eelis",
+      "Vale: Kiirus pole oluline nelja võimaluse korral, loetavus on peamine eelis",
+      "Õige: Nelja tehte jaoks on switch selgem ja organiseeritum kui if-else if ahel"
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Miks loetakse DOM elementide väärtused alles nupuvajutusel, mitte lehe laadimisel?",
+    "options": [
+      "sest väärtuste laadimine kohe tekitaks veateate konsooli",
+      "sest DOM elemente ei saa lehe laadimisel kätte, need on alles hiljem saadaval",
+      "sest kasutaja sisend muutub ajas ja väärtused tuleb lugeda alles klikkimisel",
+      "sest nii on kood kiirem, kui väärtuseid hoitakse muutujates alates laadimisest"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle, kas sisendväljade väärtus võib muutuda pärast lehe laadimist",
+    "explanations": [
+      "Vale: Väärtuste laadimine kohe ei tekita viga, aga annab vale väärtuse",
+      "Vale: DOM elemendid on saadaval pärast DOMContentLoaded sündmust",
+      "Õige: Kasutaja võib sisendeid muuta iga hetk, seega loetakse alles klikkimisel",
+      "Vale: Väärtuste laadimine kohe laadimisel annaks vale tulemuse hiljem"
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Miks kasutatakse getElementById, mitte querySelector?",
+    "options": [
+      "getElementById otsib ID järgi kiiremini kui querySelector",
+      "querySelector nõuab CSS selektorit ja ei saa otsida ID järgi",
+      "querySelector ei tööta Firefoxis korrektselt vanemates versioonides",
+      "getElementById on kiirem ja spetsiifilisem ID järgi otsimiseks"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle, kumb meetod on spetsiifilisem ja milline nende jõudlus on",
+    "explanations": [
+      "Vale: Mõlemad otsivad kogu dokumendist, mitte ainult otsestest",
+      "Vale: querySelector saab otsida ID järgi (#id), aga getElementById on otstarbekam",
+      "Vale: querySelector töötab hästi kõikides kaasaegsetes brauserites",
+      "Õige: getElementById on optimeeritud ID järgi otsimiseks ja kiirem"
+    ]
+  },
+  {
+    "level": 9,
+    "question": "Mis juhtuks, kui kalkulaatoris poleks veakontrolli (isNaN kontroll) üldse?",
+    "options": [
+      "vigase sisendi korral annaks parseFloat NaN ja tulemus kuvataks NaN-na",
+      "JavaScript ignoreeriks vead ja kuvaks tulemusena 0",
+      "brauser blokeeriks kalkulaatori nupu mittetöötamise tõttu",
+      "kalkulaator lõpetaks töö ja brauser kuvaks veateate konsoolis"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, mida teeb calculate() funktsioon kui talle anda NaN väärtus",
+    "explanations": [
+      "Õige: Ilma kontrollita kuvataks 'NaN' (Not a Number) tulemusena",
+      "Vale: NaN ei muutu automaatselt 0-ks, see levib edasi",
+      "Vale: Brauser ei blokeeri nuppe, see on rakenduse enda kontrollida",
+      "Vale: Viga ei peata skripti, sest puudub veakontroll"
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Kuidas on lahendatud kalkulaatori nupu värvi sujuv üleminek?",
+    "options": [
+      "HTML-i atribuudiga ontransition mis käivitab värvi muutuse",
+      "JavaScripti setInterval abil mis muudab värvi järk-järgult",
+      "transition: background 0.3s CSS omadusega #calculate-btn reeglis",
+      "CSS animatsiooniga @keyframes reegli abil"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata style.css ja otsi reeglit, mis lisab hover-efektile sujuvuse",
+    "explanations": [
+      "Vale: HTML-is pole ontransition atribuuti, see on CSS-i omadus",
+      "Vale: JavaScripti ei kasutata hover-efekti sujuvuse jaoks",
+      "Õige: transition omadusega määratakse, et background muutub 0.3 sekundi jooksul",
+      "Vale: @keyframes animatsioone pole siin vaja, transition on piisav"
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Miks on kalkulaatori laius määratud 350px?",
+    "options": [
+      "sest see on hea vaikelaius väikese rakenduse jaoks",
+      "et kalkulaator oleks piisavalt suur, et sisu ära mahutada",
+      "kõik eelnevad põhjendused on õiged ja see valik on tehtud disaini järgi",
+      "et tagada kalkulaatori ühtlane suurus erinevatel ekraanidel"
+    ],
+    "correctIndex": 2,
+    "hint": "Mõtle disaini ja funktsionaalsuse vaatepunktist - kõik vastused võivad olla õiged",
+    "explanations": [
+      "Vale: Vaikelaius on hea, aga on ka teisi põhjuseid",
+      "Vale: Sisu mahutamine on oluline, aga pole ainus kaalutlus",
+      "Õige: 350px tagab ühtluse, mahutab sisu ja on sobiv väikese rakenduse jaoks",
+      "Vale: Ühtlane suurus on osaliselt õige, aga see pole ainus põhjus"
+    ]
+  },
+  {
+    "level": 10,
+    "question": "Milline brauseri käitumine võiks põhjustada vea, kui skript käivituks enne DOM-i valmimist?",
+    "options": [
+      "getElementById ei leiaks elemente ja tagastaks null väärtuse",
+      "arvutused tehtaks valede väärtustega kuna sisendid pole veel loodud",
+      "brauser kuvaks veateate ja keelduks skripti käivitamast",
+      "kalkulaator töötaks normaalselt, sest skriptid laetakse pärast body"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, mida tagastab getElementById kui elementi pole veel olemas",
+    "explanations": [
+      "Õige: Kui element pole loodud, tagastab getElementById nulli",
+      "Vale: Kui elemente ei leita, siis arvutused ei saa üldse tehtud",
+      "Vale: Brauser ei kuva veateadet, skript lihtsalt ei tööta korrektselt",
+      "Vale: Skriptid laetakse enne body lõppu, aga DOMContentLoaded ootab DOM-i"
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Miks on HTML-is veateade (error) eraldi div element ja mitte osa tulemuse div-st?",
+    "options": [
+      "sest veateade on display: none vaikimisi, tulemus on alati nähtav",
+      "sest CSS-is on lihtsam stiilida eraldi elemente kui ühte kombineeritud",
+      "sest tulemuse div ja veateate div peavad olema erineva ID-ga",
+      "et eraldada veateated normaalsest tulemusest nii visuaalselt kui loogiliselt"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle, kas veateade ja tulemus on sama tüüpi info või erinevad",
+    "explanations": [
+      "Vale: See on tõsi, aga see on disainiotsuse tagajärg, mitte põhjus",
+      "Vale: See on osaliselt õige, kuid peamine põhjus on semantiline eraldamine",
+      "Vale: ID-de erinevus on tagajärg, mitte põhjus eraldi elementidele",
+      "Õige: Veateated ja tulemus on erinevat tüüpi info ja vajavad erinevat stiili"
+    ]
+  },
+  {
+    "level": 11,
+    "question": "Mis on DOMContentLoaded sündmuse ja window.onload erinevus?",
+    "options": [
+      "DOMContentLoaded käivitub kui HTML on laetud, window.onload ootab ka pilte ja stiile",
+      "DOMContentLoaded käivitub enne HTML-i valmimist, window.onload pärast",
+      "DOMContentLoaded on vanem ja aeglasem, window.onload on uuem ja kiirem",
+      "Nende vahel pole erinevust, mõlemad käivituvad samal ajal"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, millal on DOM elementidega turvaline tööd alustada",
+    "explanations": [
+      "Õige: DOMContentLoaded ootab ainult HTML-i, window.onload ootab kõiki ressursse",
+      "Vale: DOMContentLoaded ootab HTML-i valmimist, see on turvaline aeg",
+      "Vale: DOMContentLoaded on kaasaegsem ja kiirem, sest ei oota ressursse",
+      "Vale: Erinevus on oluline - window.onload võib võtta kauem aega"
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Miks ei kasutata kalkulaatori nupu jaoks HTML-i <button type='submit'>?",
+    "options": [
+      "kuna see ei asu <form> elemendi sees, submit tüübil poleks erilist mõju",
+      "sest type='submit' laeks lehe automaatselt uuesti iga nupuvajutusega",
+      "sest <button type='submit'> ei tööta ilma JavaScriptita üldse",
+      "sest <button type='button'> on ainus tüüp mis Firefoxis töötab"
+    ],
+    "correctIndex": 0,
+    "hint": "Mõtle, millal on submit tüüpi nupp vajalik ja millal mitte",
+    "explanations": [
+      "Õige: Submit nupp on mõeldud vormi saatmiseks, mida siin polegi",
+      "Vale: Submit laeks lehe uuesti ainult kui see on vormis",
+      "Vale: Submit tüüp töötab hästi, kuid on mõeldud vormide jaoks",
+      "Vale: button tüüp on vaikimisi submit, kõik brauserid toetavad seda"
+    ]
+  },
+  {
+    "level": 12,
+    "question": "Kuidas on CSS-is lahendatud veateate punane taust ja tekst?",
+    "options": [
+      ".error reeglis on background: #ff0000 ja color: #000000 punase tausta jaoks",
+      "värvid on määratud JavaScripti abil dünaamiliselt vastavalt vea tüübile",
+      ".error reeglis on background: #ffebee (helepunane) ja color: #c62828 (tume punane)",
+      ".error reeglis on background: red ja color: white nagu kõik veateated"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata style.css faili .error reeglit ja otsi värvi väärtuseid",
+    "explanations": [
+      "Vale: #ff0000 on puhas punane, siin on kasutatud heledamat #ffebee",
+      "Vale: Värvid on staatiliselt CSS-is määratud, JavaScript muudab ainult nähtavust",
+      "Õige: Kasutatakse pehmeid punaseid toone (#ffebee ja #c62828), mis on silmale meeldivamad",
+      "Vale: Puhtpunane (red) ja valge oleksid liiga teravad, siin on kasutatud pehmeid toone"
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Mis oleks potentsiaalne probleem kui tulemuse kuvamiseks kasutada resultDisplay.value?",
+    "options": [
+      "value omadus on aeglasem kui textContent ja tekitaks viivituse",
+      "value omadus töötab ainult sisendväljadel, mitte div elementidel",
+      "value omadus muudab elemendi tüübi automaatselt sisendväljaks",
+      "value omadus kuvaks tulemuse ainult konsoolis, mitte lehel"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle, millistel HTML elementidel on value omadus ja millistel mitte",
+    "explanations": [
+      "Vale: value ja textContent on sarnase jõudlusega",
+      "Õige: value on ainult form elementidel (input, select, textarea)",
+      "Vale: value määramine ei muuda elemendi tüüpi",
+      "Vale: value ei kuva konsoolis, see on elemendi omadus"
+    ]
+  },
+  {
+    "level": 13,
+    "question": "Miks on tulemuse kuvamisel kasutatud rohelist teemat (border, background, text)?",
+    "options": [
+      "roheline muudab teksti paremini loetavaks võrreldes teiste värvidega",
+      "roheline on ainus värv mis töötab kõikides brauserites ühtemoodi",
+      "roheline värv oli juhuslik valik, millel pole erilist tähendust",
+      "roheline värv seostub õnnestumise ja korrektsusega, mis sobib tulemusele"
+    ],
+    "correctIndex": 3,
+    "hint": "Mõtle, milliseid emotsioone erinevad värvid tekitavad",
+    "explanations": [
+      "Vale: Loetavus on oluline, kuid roheline pole teistest värvidest loetavam",
+      "Vale: Kõik värvid töötavad kõikides brauserites",
+      "Vale: Värvivalik on tahtlik ja läbimõeldud, mitte juhuslik",
+      "Õige: Roheline sümboliseerib õiget tulemust ja annab positiivse tagasiside"
+    ]
+  },
+  {
+    "level": 14,
+    "question": "Kuidas on CSS-is lahendatud veateate elemendi peitmine ja näitamine?",
+    "options": [
+      "vaikimisi opacity: 0, show klassi lisamisel opacity: 1",
+      "vaikimisi visibility: hidden, show klassi lisamisel visibility: visible",
+      "vaikimisi display: none, show klassi lisamisel display: block",
+      "vaikimisi height: 0, show klassi lisamisel height: auto"
+    ],
+    "correctIndex": 2,
+    "hint": "Vaata style.css .error ja .error.show reegleid",
+    "explanations": [
+      "Vale: opacity: 0 peidab visuaalselt, kuid element on endiselt interaktiivne",
+      "Vale: visibility: hidden peidab küll, kuid element võtab endiselt ruumi",
+      "Õige: .error kasutab display: none ja .error.show display: block",
+      "Vale: height: 0 peidaks sisu, kuid margin ja padding jääksid nähtavale"
+    ]
+  },
+  {
+    "level": 15,
+    "question": "Milline on parim viis selle kalkulaatori täiendamiseks klaviatuuri toega?",
+    "options": [
+      "klaviatuuri tugi tuleb automaatselt, sest nupud on juba fokuseeritavad",
+      "lisada keydown sündmus kuulaja, mis jälgib Enter klahvi ja käivitab arvutuse",
+      "kasutada HTML-i accesskey atribuuti igal sisendväljal ja nupul",
+      "lisada kalkulaatorile <form> element ja kasutada type='submit' nuppu"
+    ],
+    "correctIndex": 1,
+    "hint": "Mõtle, milline sündmus käivitub klahvivajutusel ja kuidas seda kuulata",
+    "explanations": [
+      "Vale: Nupud on kill fokuseeritavad, aga klaviatuuri tugi vajab eraldi sündmusi",
+      "Õige: keydown sündmus võimaldaks Enter klahviga arvutuse käivitamist",
+      "Vale: Accesskey on vananenud ja vähe toetatud lähenemine",
+      "Vale: Form ja submit nupp laeks lehe uuesti, mis pole soovitud"
+    ]
+  }
+]
