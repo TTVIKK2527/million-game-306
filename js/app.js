@@ -62,9 +62,9 @@ window.App = (() => {
           <h2>Vali ülesanne</h2>
           <div class="task-list">
             ${tasks.map(task => `
-              <div class="task-card" data-task-id="${task.id}">
-                <div class="task-id">${task.id}</div>
-                <div class="task-name">${task.name}</div>
+              <div class="task-card" data-task-id="${esc(task.id)}">
+                <div class="task-id">${esc(task.id)}</div>
+                <div class="task-name">${esc(task.name)}</div>
               </div>
             `).join('')}
           </div>
@@ -85,7 +85,7 @@ window.App = (() => {
     answerLocked = false;
     main.innerHTML = '<div class="menu-screen"><h2>Laen küsimusi...</h2></div>';
 
-    Questions.loadQuestionBank(taskId).then(questions => {
+    Promise.all([Tasks.loadTaskFiles(taskId), Questions.loadQuestionBank(taskId)]).then(async ([files, questions]) => {
       questionBank = questions;
       if (questionBank.length === 0) {
         main.innerHTML = `
@@ -98,9 +98,11 @@ window.App = (() => {
         return;
       }
 
-      currentQuestions = Questions.selectQuestions(questionBank, 15);
+      currentQuestions = await QuestionProvider.generate({files, bank: questionBank});
       Game.startGame(currentQuestions);
       renderGame();
+    }).catch(error => {
+      main.textContent = 'Mängu ei saanud käivitada: ' + error.message;
     });
   }
 
@@ -196,7 +198,7 @@ window.App = (() => {
         </div>
 
         <div class="question-area">
-          <div class="question-text">${q.question}</div>
+          <div class="question-text">${esc(q.question)}</div>
           <div class="options-grid">
             ${q.options.map((opt, i) => `
               <button class="option-btn" data-index="${i}" ${removed.includes(i) ? 'disabled' : ''}>
@@ -349,7 +351,7 @@ window.App = (() => {
       if (isSelected && !isCorrect) label += ' (sinu valik)';
       return '<div class="explanation-item ' + cls + '">' +
         '<div class="exp-label">' + label + '</div>' +
-        '<div>' + exp + '</div>' +
+        '<div>' + esc(exp) + '</div>' +
       '</div>';
     }).join('');
 
@@ -370,7 +372,7 @@ window.App = (() => {
       var safeMoney = Game.getSafeHavenMoney();
       var hype = result.hypeLevel;
       qText.innerHTML =
-        result.question +
+        esc(result.question) +
         '<div class="loss-hype">' +
           '<h4>' + hype.title + '</h4>' +
           '<p>' + hype.message + '</p>' +

@@ -1,80 +1,26 @@
 window.Tasks = (() => {
-  const TASKS_MANIFEST = 'tasks.json';
-
-  function loadTaskList() {
-    return new Promise((resolve) => {
-      if (window.location.protocol === 'file:') {
-        resolve([]);
-        return;
-      }
-
-      fetch(TASKS_MANIFEST)
-        .then(res => {
-          if (!res.ok) throw new Error('Manifesti ei leitud');
-          return res.json();
-        })
-        .then(manifest => resolve(manifest.tasks || []))
-        .catch(() => discoverTasks().then(resolve));
-    });
+  async function loadTaskList() {
+    if (window.location.protocol === 'file:') throw new Error('Ava rakendus HTTP serveri kaudu.');
+    const response = await fetch('tasks.json');
+    if (!response.ok) throw new Error('Manifest puudub. Käivita npm run build.');
+    const manifest = await response.json();
+    if (!Array.isArray(manifest.tasks)) throw new Error('Vigane manifest.');
+    return manifest.tasks;
   }
-
-  function discoverTasks() {
-    return new Promise((resolve) => {
-      const tasks = [];
-      let i = 1;
-
-      function tryNext() {
-        if (i > 20) {
-          resolve(tasks);
-          return;
-        }
-        const id = String(i).padStart(3, '0');
-        fetch(`input/${id}/assignment.md`)
-          .then(res => {
-            if (res.ok) {
-              return res.text();
-            }
-            resolve(tasks);
-          })
-          .then(text => {
-            if (text) {
-              const title = extractTitle(text) || `Ülesanne ${id}`;
-              tasks.push({ id, name: title });
-              i++;
-              tryNext();
-            } else {
-              resolve(tasks);
-            }
-          })
-          .catch(() => resolve(tasks));
-      }
-
-      tryNext();
-    });
+  async function loadTaskFiles(taskId) {
+    if (!/^\d+$/.test(taskId)) throw new Error('Vigane ülesande ID.');
+    const task = (await loadTaskList()).find(task => task.id === taskId);
+    if (!task || !Array.isArray(task.files)) throw new Error('Ülesannet ei leitud.');
+    const files = {};
+    for (const file of task.files) {
+      if (typeof file !== 'string' || file.includes('\\') || file.startsWith('/') || file.split('/').some(part => !part || part === '.' || part === '..')) throw new Error('Vigane faili tee.');
+      const url = 'input/' + taskId + '/' + file.split('/').map(encodeURIComponent).join('/');
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Ülesande faili ei saanud lugeda: ' + file);
+      files[file] = await response.text();
+    }
+    if (!files['assignment.md'] || Object.keys(files).length < 2) throw new Error('Kirjeldus või lahendus puudub.');
+    return files;
   }
-
-  function extractTitle(md) {
-    const match = md.match(/^#\s+(.+)$/m);
-    return match ? match[1].trim() : null;
-  }
-
-  function loadTaskFiles(taskId) {
-    return new Promise((resolve) => {
-      const base = `input/${taskId}/`;
-      const files = {};
-
-      fetch(`${base}assignment.md`)
-        .then(res => {
-          if (res.ok) return res.text();
-          return null;
-        })
-        .then(text => {
-          if (text) files['assignment.md'] = text;
-          resolve(files);
-        })
-        .catch(() => resolve(files));
-    });
-  }
-
-  return { loadTaskList, loadTaskFiles };
+  return {loadTaskList, loadTaskFiles};
 })();

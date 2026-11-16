@@ -2,15 +2,34 @@
   "tasks": [
     {
       "id": "001",
-      "name": "JavaScripti kalkulaator"
+      "name": "JavaScripti kalkulaator",
+      "files": [
+        "assignment.md",
+        "index.html",
+        "script.js",
+        "style.css"
+      ]
     },
     {
       "id": "002",
-      "name": "JSON-andmete kuvamine"
+      "name": "JSON-andmete kuvamine",
+      "files": [
+        "assignment.md",
+        "data.json",
+        "index.html",
+        "script.js",
+        "style.css"
+      ]
     },
     {
       "id": "003",
-      "name": "To-do list localStorage'iga"
+      "name": "To-do list localStorage'iga",
+      "files": [
+        "assignment.md",
+        "index.html",
+        "script.js",
+        "style.css"
+      ]
     }
   ]
 }
