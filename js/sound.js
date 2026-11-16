@@ -1,26 +1,16 @@
 // Sound effects and background music
 const Sound = (() => {
   let audioContext = null;
-  let isMusicMuted = true;
+  let isMusicMuted = false;
   let isSfxMuted = false;
   let themeAudio = null;
-  let bgPlaying = false;
-  let bgMasterGain = null;
-  let bgChordTimeout = null;
-  let bgOscs = [];
+  let finalThemeActive = false;
 
   function getContext() {
     if (!audioContext) {
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
     return audioContext;
-  }
-
-  function stopOscs() {
-    for (var i = 0; i < bgOscs.length; i++) {
-      try { bgOscs[i].stop(); } catch (e) {}
-    }
-    bgOscs = [];
   }
 
   function playTone(frequency, duration, type, volume) {
@@ -74,7 +64,7 @@ const Sound = (() => {
   }
 
   function playWrong() {
-    stopBackgroundMusic();
+    stopMusic();
     playChord([293.66, 349.23], 0.4, 'triangle', 0.06);
     setTimeout(() => playChord([261.63, 311.13], 0.5, 'triangle', 0.06), 250);
   }
@@ -85,7 +75,7 @@ const Sound = (() => {
   }
 
   function playWin() {
-    stopBackgroundMusic();
+    stopMusic();
     try { if (themeAudio) { themeAudio.pause(); themeAudio.currentTime = 0; } } catch (e) {}
     
     var notes = [523.25, 587.33, 659.25, 698.46, 783.99, 880.00, 987.77, 1046.50];
@@ -108,7 +98,7 @@ const Sound = (() => {
   }
 
   function playLose() {
-    stopBackgroundMusic();
+    stopMusic();
     playChord([293.66, 349.23], 0.5, 'sawtooth', 0.06);
     setTimeout(() => playChord([261.63, 311.13], 0.6, 'sawtooth', 0.06), 300);
   }
@@ -129,109 +119,18 @@ const Sound = (() => {
     setTimeout(() => playTone(500, 0.08, 'sine', 0.06), 120);
   }
 
-  // Calm ambient chord pad progression (loops indefinitely)
-  function startBackgroundMusic() {
-    if (isMusicMuted || bgPlaying) return;
-    try {
-      var ctx = getContext();
-      if (bgMasterGain) return;
-      
-      bgMasterGain = ctx.createGain();
-      bgMasterGain.gain.setValueAtTime(isMusicMuted ? 0 : 0.08, ctx.currentTime);
-      bgMasterGain.connect(ctx.destination);
-      
-      bgPlaying = true;
-      playChordPad(0);
-    } catch (e) {}
-  }
-
-  function stopBackgroundMusic() {
-    bgPlaying = false;
-    if (bgChordTimeout) {
-      clearTimeout(bgChordTimeout);
-      bgChordTimeout = null;
+  function stopMusic() {
+    finalThemeActive = false;
+    if (themeAudio) {
+      themeAudio.pause();
+      themeAudio.currentTime = 0;
     }
-    stopOscs();
-    if (bgMasterGain) {
-      try { bgMasterGain.disconnect(); } catch (e) {}
-      bgMasterGain = null;
-    }
-    try {
-      if (themeAudio) {
-        themeAudio.pause();
-        themeAudio.currentTime = 0;
-      }
-    } catch (e) {}
-  }
-
-  function playChordPad(index) {
-    if (!bgPlaying) return;
-    
-    stopOscs();
-    
-    try {
-      var ctx = getContext();
-      var chords = [
-        { notes: [261.63, 329.63, 392.00], bass: 130.81 },
-        { notes: [293.66, 349.23, 440.00], bass: 146.83 },
-        { notes: [220.00, 261.63, 329.63], bass: 110.00 },
-        { notes: [174.61, 220.00, 261.63], bass: 87.31 },
-        { notes: [196.00, 246.94, 293.66], bass: 98.00 },
-        { notes: [261.63, 311.13, 392.00], bass: 130.81 },
-        { notes: [233.08, 293.66, 349.23], bass: 116.54 },
-        { notes: [329.63, 392.00, 523.25], bass: 164.81 },
-      ];
-      
-      var chordData = chords[index % chords.length];
-      var chord = chordData.notes;
-      var bass = chordData.bass;
-      
-      var chordGain = ctx.createGain();
-      chordGain.connect(bgMasterGain);
-      
-      var bassGain = ctx.createGain();
-      bassGain.gain.setValueAtTime(0.6, ctx.currentTime);
-      bassGain.connect(bgMasterGain);
-      
-      var now = ctx.currentTime;
-      chordGain.gain.setValueAtTime(0, now);
-      chordGain.gain.linearRampToValueAtTime(1, now + 1.2);
-      chordGain.gain.setValueAtTime(1, now + 4);
-      chordGain.gain.linearRampToValueAtTime(0, now + 5.5);
-      
-      bassGain.gain.setValueAtTime(0, now);
-      bassGain.gain.linearRampToValueAtTime(0.6, now + 0.5);
-      bassGain.gain.setValueAtTime(0.6, now + 4.5);
-      bassGain.gain.linearRampToValueAtTime(0, now + 5.5);
-      
-      for (var f = 0; f < chord.length; f++) {
-        var osc = ctx.createOscillator();
-        osc.type = f === 0 ? 'sine' : (f === 1 ? 'triangle' : 'sine');
-        osc.frequency.setValueAtTime(chord[f], now);
-        osc.connect(chordGain);
-        osc.start(now);
-        osc.stop(now + 6);
-        bgOscs.push(osc);
-      }
-      
-      var bassOsc = ctx.createOscillator();
-      bassOsc.type = 'sine';
-      bassOsc.frequency.setValueAtTime(bass, now);
-      bassOsc.connect(bassGain);
-      bassOsc.start(now);
-      bassOsc.stop(now + 6);
-      bgOscs.push(bassOsc);
-    } catch (e) {}
-    
-    var delay = 5500 + Math.floor(Math.random() * 500);
-    bgChordTimeout = setTimeout(function() {
-      playChordPad(index + 1);
-    }, delay);
   }
 
   // Intense theme played once at the final question
   function playIntense() {
-    stopBackgroundMusic();
+    stopMusic();
+    finalThemeActive = true;
     if (isMusicMuted) return;
     try {
       initThemeAudio();
@@ -267,16 +166,11 @@ const Sound = (() => {
 
   function toggleMusic() {
     isMusicMuted = !isMusicMuted;
-    if (bgMasterGain) {
-      try {
-        var ctx = getContext();
-        bgMasterGain.gain.setValueAtTime(isMusicMuted ? 0 : 0.08, ctx.currentTime);
-      } catch (e) {}
-    }
     if (isMusicMuted) {
-      try { if (themeAudio) { themeAudio.pause(); } } catch (e) {}
-    } else if (!bgPlaying) {
-      startBackgroundMusic();
+      if (themeAudio) themeAudio.pause();
+    } else if (finalThemeActive) {
+      initThemeAudio();
+      themeAudio.play().catch(function() {});
     }
     return isMusicMuted;
   }
@@ -316,8 +210,7 @@ const Sound = (() => {
     playFifty: playFifty,
     playHint: playHint,
     playAudience: playAudience,
-    startBackgroundMusic: startBackgroundMusic,
-    stopBackgroundMusic: stopBackgroundMusic,
+    stopMusic: stopMusic,
     playIntense: playIntense,
     resumeContext: resumeContext,
     initOnInteraction: initOnInteraction,

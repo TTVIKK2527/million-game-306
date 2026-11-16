@@ -23,7 +23,7 @@ window.App = (() => {
       function updateMusicControl(isMuted) {
         musicBtn.classList.toggle('muted', isMuted);
         musicBtn.textContent = isMuted ? '🔇' : '🎵';
-        musicBtn.title = isMuted ? 'Lülita taustamuusika sisse' : 'Lülita taustamuusika välja';
+        musicBtn.title = isMuted ? 'Lülita lõpuküsimuse muusika sisse' : 'Lülita lõpuküsimuse muusika välja';
         musicBtn.setAttribute('aria-label', musicBtn.title);
         musicBtn.setAttribute('aria-pressed', String(!isMuted));
       }
@@ -48,7 +48,7 @@ window.App = (() => {
 
   function renderMenu() {
     stopTimer();
-    Sound.stopBackgroundMusic();
+    Sound.stopMusic();
 
     if (window.location.protocol === 'file:') {
       main.innerHTML = `
@@ -167,7 +167,6 @@ window.App = (() => {
 
     answerLocked = false;
     Sound.resumeContext();
-    Sound.startBackgroundMusic();
 
     if (q.questionNumber === q.totalQuestions) {
       Sound.playIntense();
@@ -398,7 +397,7 @@ window.App = (() => {
 
   function renderWin() {
     stopTimer();
-    Sound.stopBackgroundMusic();
+    Sound.stopMusic();
     var hype = Game.getHypeLevel();
     main.innerHTML = `
       <div class="win-screen active">
