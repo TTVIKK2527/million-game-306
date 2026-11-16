@@ -60,7 +60,7 @@ window.Game = (() => {
   }
 
   function getCurrentMoney() {
-    return MONEY_STEPS[state.currentIndex] || 0;
+    return state.score;
   }
 
   function getSafeHavenMoney() {
@@ -72,12 +72,7 @@ window.Game = (() => {
     return 0;
   }
 
-  function getFinalMoney() {
-    if (state.currentIndex >= MONEY_STEPS.length) {
-      return MONEY_STEPS[MONEY_STEPS.length - 1];
-    }
-    return getCurrentMoney();
-  }
+  function getFinalMoney() { return state.score; }
 
   function getHypeLevel() {
     const questionsAnswered = state.currentIndex;
@@ -92,7 +87,7 @@ window.Game = (() => {
   }
 
   function answerQuestion(selectedIndex) {
-    if (state.answered) return null;
+    if (state.answered || state.currentIndex >= state.questions.length) return null;
 
     const question = state.questions[state.currentIndex];
     const isCorrect = selectedIndex === question.correctIndex;
@@ -105,6 +100,8 @@ window.Game = (() => {
       state.answered = false;
       state.removedOptions = [];
       state.usedHint = false;
+    } else {
+      state.score = getSafeHavenMoney();
     }
 
     return {
@@ -150,38 +147,18 @@ window.Game = (() => {
     const correctIndex = question.correctIndex;
     const level = question.level || 1;
 
-    let percentages = new Array(4).fill(0);
-    if (level <= 5) {
-      const correctP = 40 + Math.floor(Math.random() * 35);
-      percentages[correctIndex] = correctP;
-      let remaining = 100 - correctP;
-      for (let i = 0; i < 4; i++) {
-        if (i === correctIndex) continue;
-        const share = i === 3 ? remaining : Math.floor(Math.random() * remaining);
-        percentages[i] = share;
-        remaining -= share;
-      }
-    } else if (level <= 10) {
-      const correctP = 25 + Math.floor(Math.random() * 35);
-      percentages[correctIndex] = correctP;
-      let remaining = 100 - correctP;
-      for (let i = 0; i < 4; i++) {
-        if (i === correctIndex) continue;
-        const share = i === 3 ? remaining : Math.floor(Math.random() * remaining);
-        percentages[i] = share;
-        remaining -= share;
-      }
-    } else {
-      const correctP = 15 + Math.floor(Math.random() * 30);
-      percentages[correctIndex] = correctP;
-      let remaining = 100 - correctP;
-      for (let i = 0; i < 4; i++) {
-        if (i === correctIndex) continue;
-        const share = i === 3 ? remaining : Math.floor(Math.random() * remaining);
-        percentages[i] = share;
-        remaining -= share;
-      }
-    }
+    const percentages = new Array(4).fill(0);
+    const correctP = level <= 5 ? 40 + Math.floor(Math.random() * 35)
+      : level <= 10 ? 25 + Math.floor(Math.random() * 35)
+      : 15 + Math.floor(Math.random() * 30);
+    percentages[correctIndex] = correctP;
+    let remaining = 100 - correctP;
+    const wrong = [0, 1, 2, 3].filter(index => index !== correctIndex);
+    wrong.forEach((index, position) => {
+      const share = position === wrong.length - 1 ? remaining : Math.floor(Math.random() * (remaining + 1));
+      percentages[index] = share;
+      remaining -= share;
+    });
 
     return percentages.map((p, i) => ({ label: String.fromCharCode(65 + i), percent: p }));
   }

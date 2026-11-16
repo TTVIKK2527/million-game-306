@@ -15,17 +15,19 @@ window.Questions = (() => {
   }
 
   function selectQuestions(bank, count) {
-    if (!count) count = 15;
-    var shuffled = shuffleArray([...bank]);
-    var selected = shuffled.slice(0, Math.min(count, shuffled.length));
-
-    selected.sort(function(a, b) { return (a.level || 1) - (b.level || 1); });
-
-    if (selected.length < count) {
-      var remaining = bank.filter(function(q) { return selected.indexOf(q) === -1; });
-      var extra = shuffleArray(remaining).slice(0, count - selected.length);
-      selected = selected.concat(extra);
-      selected.sort(function(a, b) { return (a.level || 1) - (b.level || 1); });
+    if (count !== undefined && count !== 15) throw new Error('Mäng vajab 15 küsimust.');
+    if (!Array.isArray(bank)) throw new Error('Vigane küsimustepank.');
+    for (const q of bank) {
+      if (!Number.isInteger(q.level) || q.level < 1 || q.level > 15 || typeof q.question !== 'string'
+          || !Array.isArray(q.options) || q.options.length !== 4 || q.options.some(x => typeof x !== 'string' || !x.trim())
+          || new Set(q.options).size !== 4 || !Number.isInteger(q.correctIndex) || q.correctIndex < 0 || q.correctIndex > 3
+          || !Array.isArray(q.explanations) || q.explanations.length !== 4) throw new Error('Vigane küsimus pangas.');
+    }
+    var selected = [];
+    for (const [low, high] of [[1, 5], [6, 10], [11, 15]]) {
+      const group = bank.filter(q => q.level >= low && q.level <= high);
+      if (group.length < 5) throw new Error('Igas raskusastmes peab olema vähemalt 5 küsimust.');
+      selected = selected.concat(shuffleArray(group).slice(0, 5).sort((a, b) => a.level - b.level));
     }
 
     selected = selected.map(function(q) {
