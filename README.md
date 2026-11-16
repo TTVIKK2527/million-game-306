@@ -13,11 +13,11 @@ npm start
 ```
 
 Ava http://localhost:8080. Otse file:// avamine ei tööta, sest rakendus laadib faile fetch-iga. Avalik repositoorium: https://github.com/TTVIKK2527/million-game-306.
-GitHub Pagesi deploy on edukas. Konto päritud domeen suunab veebiversiooni
-aadressile http://toivotulp.me/million-game-306/. Selle aadressi kättesaadavuse
-kontroll aegus selles keskkonnas; avaliku saidi tegelik avanemine on kinnitamata.
-[Kanban-töölaua lähtekood](planning.html); Pagesi kaudu avamisel kehtib sama
-domeenipiirang. Kohalikus serveris ava `/planning.html`.
+Avalik mäng: https://ttvikk2527.github.io/million-game-306/.
+Avalik [Kanban-töölaud](https://ttvikk2527.github.io/million-game-306/planning.html).
+16.11.2026 eemaldati konto aegunud `toivotulp.me` domeenisuunamine; GitHubi aadress
+vastab HTTP 200 ning ülesannete valik on päris brauseris kontrollitud.
+
 
 ## Ülesannete lisamine ja küsimuste allikas
 
