@@ -62,10 +62,10 @@ window.App = (() => {
           <h2>Vali ülesanne</h2>
           <div class="task-list">
             ${tasks.map(task => `
-              <div class="task-card" data-task-id="${esc(task.id)}">
-                <div class="task-id">${esc(task.id)}</div>
-                <div class="task-name">${esc(task.name)}</div>
-              </div>
+              <button type="button" class="task-card" data-task-id="${esc(task.id)}">
+                <span class="task-id">${esc(task.id)}</span>
+                <span class="task-name">${esc(task.name)}</span>
+              </button>
             `).join('')}
           </div>
         </div>

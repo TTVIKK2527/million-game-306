@@ -814,3 +814,31 @@ body {
     width: 80%;
   }
 }
+
+/* Keep timed questions reachable on small screens. */
+.timer-bar { height: 22px; }
+.timer-text { top: 2px; right: 8px; color: #fff; text-shadow: 0 1px 3px #000; }
+.task-card { color: inherit; font: inherit; text-align: left; }
+button:focus-visible { outline: 3px solid #ffd700; outline-offset: 3px; }
+@media (max-width: 768px) {
+  #app { padding: 12px; }
+  .header { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; margin-bottom: 18px; }
+  .header h1 { font-size: 1.6rem; letter-spacing: 1px; }
+  .header-buttons { position: static; transform: none; gap: 6px; }
+  .music-btn, .sfx-btn { width: 34px; height: 34px; font-size: 1.1rem; }
+  .game-header { padding: 10px; gap: 8px; margin-bottom: 12px; }
+  .game-header .score { font-size: 1.05rem; }
+  .game-header .question-counter { font-size: .8rem; }
+  .game-header .quit-btn { padding: 7px 10px; font-size: .8rem; }
+  .money-ladder { display: grid; grid-template-columns: repeat(5, 1fr); min-width: 0; padding: 6px; margin: 10px 0; gap: 2px; }
+  .money-ladder .step { padding: 3px 1px; margin: 0; font-size: .61rem; text-align: center; }
+  .money-ladder .step.safe { padding-left: 1px; }
+  .lifelines { flex-direction: row; gap: 5px; }
+  .lifeline-btn { width: auto; flex: 1; padding: 10px 3px; font-size: .76rem; }
+  .question-area { padding: 14px; margin: 12px 0; }
+  .question-text { font-size: 1rem; margin-bottom: 14px; }
+  .options-grid { gap: 8px; }
+  .option-btn { font-size: .9rem; padding: 10px; gap: 8px; }
+  .option-btn .option-label { width: 28px; height: 28px; flex-shrink: 0; }
+  .result-panel, .win-panel { padding: 22px 16px; }
+}
