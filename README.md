@@ -12,7 +12,9 @@ npm test
 npm start
 ```
 
-Ava http://localhost:8080. Otse file:// avamine ei tööta, sest rakendus laadib faile fetch-iga. GitHub Pages sobib pärast avaldamist staatiliseks majutuseks; avaldamist pole selles sessioonis tehtud.
+Ava http://localhost:8080. Otse file:// avamine ei tööta, sest rakendus laadib faile fetch-iga. Avalik repositoorium: https://github.com/TTVIKK2527/million-game-306.
+Veebiversioon: https://ttvikk2527.github.io/million-game-306/.
+Avalik [Kanban-töölaud](https://ttvikk2527.github.io/million-game-306/planning.html).
 
 ## Ülesannete lisamine ja küsimuste allikas
 
@@ -28,4 +30,34 @@ Lugu on valmis, kui vastuvõtukriteeriumid on täidetud, asjakohased testid läb
 
 ## Kontroll 16.11.2026
 
-`npm run build`: kolm näidisülesannet. `npm test`: viis regressioonitesti (raskusjaotus, skoor, publikuprotsendid, kontekstifailid, küsimuste valideerimine). JavaScripti süntaks kontrollitud. Täielik brauserimäng, heli ja mobiilipaigutus vajavad veel tegelikku läbimängu. Taastatud algfailide esimene commit on ausalt märgistatud snapshot'ina; see ei taasta puuduvat varasemat arenduslugu.
+`npm run build`: kolm näidisülesannet. `npm test`: viis regressioonitesti (raskusjaotus, skoor, publikuprotsendid, kontekstifailid, küsimuste valideerimine). JavaScripti süntaks kontrollitud. Jätkutöös kontrolliti päris brauseris ülesande valikut, õiget vastust,
+selgitusi, skoori 0 → 100, valet vastust ja mängu lõppu ning kõiki kolme õlekõrt.
+390 px telefonivaate kontroll leidis ja parandas küsimust varjanud pika rahaastmete
+loendi ning päise kattumise. Helifail laeb ja lülitid on olemas; tegelikku
+kõlaritest kostvat heli ja päris telefoni puutežeste ei ole kinnitatud. Taastatud algfailide esimene commit on ausalt märgistatud snapshot'ina; see ei taasta puuduvat varasemat arenduslugu.
+
+
+## Tehnoloogiad ja piirangud
+
+HTML, CSS ja raamistikuvaba JavaScript brauseris; Node.js standardteek manifesti
+koostamiseks ning testimiseks. Küsimuste simulatsioon valib olemasolevast pangast
+uue segatud komplekti, mitte ei loo piiramatult uut sisu. Ajapiirang on küsimuse
+raskuse järgi 30/45/60 sekundit. Avalik versioon ei saada lähtekoodi välisele AI-le.
+
+## Demo ja kontrolli tõendid
+
+[Arvutivaade](evidence/game.jpg) · [390 px telefonivaate tagasiside](evidence/mobile.jpg).
+
+Demo: vali ülesanne 001, kasuta vihjet või publikut, vasta ühe küsimuse õigesti,
+vaata kõigi valikute selgitust ning jätka järgmise küsimuseni (100 punkti).
+Vale vastus lõpetab mängu ja näitab saavutatud turvataset; menüüst saab valida
+teise ülesande. 50:50 eemaldab kaks valet varianti ja iga õlekõrs töötab üks kord.
+Viis regressioonitesti kontrollivad ka 5+5+5 raskusjaotust ja kõigi kontekstifailide lugemist.
+
+## Edasiarendus ja tehniline tagasivaade
+
+Jätkutöö lahendas skoori ning publikuprotsentide vead, eraldas küsimuste pakkuja,
+lisas failimanifesti ning parandas tegelikus telefonilaiuse kontrollis leitud paigutuse.
+Järgmises iteratsioonis saab lisada serveripoolse AI-pakkuja, tulemuste ajaloo ja
+heliga läbimängu päris telefonis. See on tehniline tööraport; õppija isiklikku
+õpikogemust ega individuaalset selgitamisoskust ei ole selle tekstiga väidetud.
